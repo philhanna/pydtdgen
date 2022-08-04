@@ -38,3 +38,10 @@ class TestAttributeModel(TestCase):
         am.increment_occurrences()
         am.increment_occurrences()
         self.assertEqual(3, am.occurrences)
+
+    def test_contains(self):
+        am = self.am
+        for name in ["Larry", "Curly", "Moe", "Shemp", "Curly Joe"]:
+            self.assertTrue(am.contains(name), f'Attribute model does not contain "{name}"')
+        for name in ["bogus", "", None]:
+            self.assertFalse(am.contains(name), f'Attribute model contains "{name}"')
