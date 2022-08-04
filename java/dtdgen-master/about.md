@@ -1,24 +1,17 @@
-\[This local archive copy mirrored from the .ZIP file at the canonical
-site: <http://home.iclweb.com/icl2/mhkay/dtdgen.zip>, 1998-05-05; get
-the source via this URL.\]
+# DTDGen - XML DTD Generator
 
-DTDGen - XML DTD Generator
-==========================
-
-Purpose
--------
+## Purpose
 
 DTDGen is a program that takes an XML document as input and produces a
 Document Type Definition (DTD) as output.
 
 The aim of the program is to give you a quick start in writing a DTD.
 The DTD is one of the many possible DTDs to which the input document
-conforms. Typically you will want to examine the DTD and edit it to
+conforms. Typically, you will want to examine the DTD and edit it to
 describe your intended documents more precisely. In a few cases you will
 have to edit the DTD before you can use it.
 
-Usage
------
+## Usage
 
 First install a parser and, if necessary, the SAX Driver for that
 parser. Details of SAX parsers are available at
@@ -42,8 +35,7 @@ The output file will be an XML external document type definition.
 The input file is not modified; if you want to edit it to refer to the
 generated DTD, you must do this yourself.
 
-What it does
-------------
+## What it does
 
 The program makes a list of all the elements and attributes that appear
 in your document, noting how they are nested, and noting which elements
@@ -91,8 +83,7 @@ choice:
 
 ------------------------------------------------------------------------
 
-About DTDGen
-------------
+## About DTDGen
 
 DTDGen was written by [Michael Kay](mailto:M.H.Kay@eng.icl.co.uk) of
 [ICL](http://www.icl.com).
