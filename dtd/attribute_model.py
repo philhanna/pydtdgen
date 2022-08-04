@@ -8,44 +8,61 @@ class AttributeModel:
         """ Creates a new attribute model with the specified name """
         self._name: str = name
         self._occurrences: int = 0
-        self._is_unique: bool = True
-        self._is_all_names: bool = True
-        self._is_all_nmtokens: bool = True
+        self._unique: bool = True
+        self._all_names: bool = True
+        self._all_nmtokens: bool = True
         self._values: set[str] = set()
+
+    # The attribute name (read-only)
 
     @property
     def name(self):
         return self._name
 
+    # Number of occurrences of this attribute
+
     @property
     def occurrences(self):
-        """ Returns the number of times this attribute was found in the source
-        XML associated with this element """
         return self._occurrences
 
-    @property
-    def is_unique(self):
-        return self._is_unique
+    @occurrences.setter
+    def occurrences(self, count: int):
+        self._occurrences = count
 
-    @is_unique.setter
-    def is_unique(self, value: bool):
-        self._is_unique = value
+    def increment_occurrences(self):
+        self._occurrences += 1
 
-    @property
-    def is_all_names(self):
-        return self._is_all_names
-
-    @is_all_names.setter
-    def is_all_names(self, value: bool):
-        self._is_all_names = value
+    # True if no duplicate values were encountered
 
     @property
-    def is_all_nmtokens(self):
-        return self._is_all_nmtokens
+    def unique(self):
+        return self._unique
 
-    @is_all_nmtokens.setter
-    def is_all_nmtokens(self, value: bool):
-        self._is_all_nmtokens = value
+    @unique.setter
+    def unique(self, value: bool):
+        self._unique = value
+
+    # True if all the attribute values are valid names
+
+    @property
+    def all_names(self):
+        return self._all_names
+
+    @all_names.setter
+    def all_names(self, value: bool):
+        self._all_names = value
+
+    # True if all the attribute values are valid NMTOKENs
+
+    @property
+    def all_nmtokens(self):
+        return self._all_nmtokens
+
+    @all_nmtokens.setter
+    def all_nmtokens(self, value: bool):
+        self._all_nmtokens = value
+
+    # Set of all distinct values encountered for this attribute
 
     @property
     def first_value(self):
@@ -57,13 +74,26 @@ class AttributeModel:
     @property
     def value_count(self):
         return len(self._values)
+
+    def add_value(self, value: str):
+        self._values.add(value)
+
     def value_iterator(self):
         """ An iterator over the values for this attribute """
         for value in self._values:
             yield value
 
-    def increment_occurrences(self):
-        self._occurrences += 1
+    def contains(self, value) -> bool:
+        return value in self._values
 
-
-
+    def __str__(self):
+        class_name = self.__class__.__name__
+        return (
+            f"{class_name} [name={self.name}"
+            f", occurrences={self.occurrences}"
+            f", unique={self.unique}"
+            f", values={self._values}"
+            f", allNames={self.all_names}"
+            f", allNMTOKENS={self.all_nmtokens}"
+            "]"
+        )
