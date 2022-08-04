@@ -1,5 +1,7 @@
 __all__ = [
-    'AttributeModel'
+    'AttributeModel',
+    'ChildModel'
 ]
 
 from .attribute_model import AttributeModel
+from .child_model import ChildModel
