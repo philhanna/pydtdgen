@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<stooges>
+   <stooge name="Larry" rank="2">
+      Hey, Moe!
+   </stooge>
+   <stooge name="Curly" rank="3">
+      Nyuk, nyuk, nyuk...
+   </stooge>
+   <stooge name="Moe" rank="1">
+      Why, I oughta...
+   </stooge>
+</stooges>
