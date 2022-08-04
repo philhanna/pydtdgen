@@ -20,5 +20,13 @@ class TestAttributeModel(TestCase):
         self.assertTrue(am.all_nmtokens)
 
     def test_get_first_value(self):
+        """ Makes sure that the list is not alphabetical,
+        but in arrival sequence. """
         am = self.am
         self.assertEqual("Larry", am.first_value)
+
+    def test_get_first_value_on_empty_list(self):
+        am = AttributeModel("stooge")
+        self.assertIsNone(am.first_value)
+        am.add_value("Max")
+        self.assertEqual("Max", am.first_value)
