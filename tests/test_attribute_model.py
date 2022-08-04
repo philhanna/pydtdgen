@@ -30,3 +30,11 @@ class TestAttributeModel(TestCase):
         self.assertIsNone(am.first_value)
         am.add_value("Max")
         self.assertEqual("Max", am.first_value)
+
+    def test_increment_occurrences(self):
+        am = self.am
+        self.assertEqual(0, am.occurrences)
+        am.increment_occurrences()
+        am.increment_occurrences()
+        am.increment_occurrences()
+        self.assertEqual(3, am.occurrences)
