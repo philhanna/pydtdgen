@@ -98,7 +98,7 @@ class AttributeModel:
             f"{class_name} [name={self.name}"
             f", occurrences={self.occurrences}"
             f", unique={self.unique}"
-            f", values={self._values}"
+            f", values={self.values}"
             f", allNames={self.all_names}"
             f", allNMTOKENS={self.all_nmtokens}"
             "]"

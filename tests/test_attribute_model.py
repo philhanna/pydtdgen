@@ -50,3 +50,6 @@ class TestAttributeModel(TestCase):
         expected_list = ["Larry", "Curly", "Moe", "Shemp", "Curly Joe"]
         actual_list = self.am.values
         self.assertListEqual(expected_list, actual_list)
+
+    def test_str(self):
+        print(self.am)
