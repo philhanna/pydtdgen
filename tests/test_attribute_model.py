@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import TestCase, skip
 from dtd import AttributeModel
 
 
@@ -51,5 +51,6 @@ class TestAttributeModel(TestCase):
         actual_list = self.am.values
         self.assertListEqual(expected_list, actual_list)
 
+    @skip
     def test_str(self):
         print(self.am)
