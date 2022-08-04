@@ -1,0 +1,6 @@
+<!ELEMENT stooges ( stooge+ ) >
+
+<!ELEMENT stooge ( #PCDATA ) >
+<!ATTLIST stooge name NMTOKEN #REQUIRED >
+<!ATTLIST stooge rank NMTOKEN #REQUIRED >
+
