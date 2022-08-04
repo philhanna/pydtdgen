@@ -75,6 +75,10 @@ class AttributeModel:
     def value_count(self):
         return len(self._values)
 
+    @property
+    def values(self):
+        return list(self._values.keys())
+
     def add_value(self, value: str):
         if value not in self._values:
             self._values[value] = "OK"
@@ -86,6 +90,7 @@ class AttributeModel:
 
     def contains(self, value) -> bool:
         return value in self._values
+
 
     def __str__(self):
         class_name = self.__class__.__name__

@@ -45,3 +45,8 @@ class TestAttributeModel(TestCase):
             self.assertTrue(am.contains(name), f'Attribute model does not contain "{name}"')
         for name in ["bogus", "", None]:
             self.assertFalse(am.contains(name), f'Attribute model contains "{name}"')
+
+    def test_values(self):
+        expected_list = ["Larry", "Curly", "Moe", "Shemp", "Curly Joe"]
+        actual_list = self.am.values
+        self.assertListEqual(expected_list, actual_list)
