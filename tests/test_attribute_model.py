@@ -18,3 +18,7 @@ class TestAttributeModel(TestCase):
         self.assertTrue(am.unique)
         self.assertTrue(am.all_names)
         self.assertTrue(am.all_nmtokens)
+
+    def test_get_first_value(self):
+        am = self.am
+        self.assertEqual("Larry", am.first_value)

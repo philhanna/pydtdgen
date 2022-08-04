@@ -11,7 +11,7 @@ class AttributeModel:
         self._unique: bool = True
         self._all_names: bool = True
         self._all_nmtokens: bool = True
-        self._values: set[str] = set()
+        self._values: dict[str, str] = dict()
 
     # The attribute name (read-only)
 
@@ -76,11 +76,12 @@ class AttributeModel:
         return len(self._values)
 
     def add_value(self, value: str):
-        self._values.add(value)
+        if value not in self._values:
+            self._values[value] = "OK"
 
     def value_iterator(self):
         """ An iterator over the values for this attribute """
-        for value in self._values:
+        for value in self._values.keys():
             yield value
 
     def contains(self, value) -> bool:
