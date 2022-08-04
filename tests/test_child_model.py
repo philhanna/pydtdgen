@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import TestCase, skip
 
 from dtd import ChildModel
 
@@ -20,3 +20,8 @@ class TestChildModel(TestCase):
         self.assertTrue(cd.optional)    # Check default
         cd.optional = False
         self.assertFalse(cd.optional)
+
+    @skip("Do not print ChildModel instance")
+    def test_str(self):
+        cd = ChildModel("son")
+        print(cd)

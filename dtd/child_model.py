@@ -29,3 +29,12 @@ class ChildModel:
     @optional.setter
     def optional(self, value: bool):
         self._optional = value
+
+    def __str__(self):
+        class_name = self.__class__.__name__
+        return (
+            f"{class_name} [name={self.name}"
+            f", repeatable={self.repeatable}"
+            f", optional={self.optional}"
+            "]"
+        )
