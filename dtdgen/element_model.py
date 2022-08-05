@@ -19,6 +19,10 @@ class ElementModel:
         self._attributes: dict[str, AttributeModel] = dict()
 
     @property
+    def name(self):
+        return self._name
+
+    @property
     def min_id_values(self):
         """Minimum number of attribute values that must appear for the
         attribute to be regarded as an ID value"""
