@@ -25,6 +25,7 @@ public class DocumentModel {
    // ====================================================================
    // Instance variables
    // ====================================================================
+
    /**
     * Returns the root element name. This is determined by looking at
     * all elements in the element name list and deleting of their known
