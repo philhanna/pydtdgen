@@ -82,7 +82,7 @@ class AttributeModel:
 
     def add_value(self, value: str):
         if value not in self._values:
-            self._values[value] = "OK"
+            self._values[value] = ""
 
     def value_iterator(self):
         """ An iterator over the values for this attribute """

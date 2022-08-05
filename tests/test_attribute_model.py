@@ -51,6 +51,11 @@ class TestAttributeModel(TestCase):
         actual_list = self.am.values
         self.assertListEqual(expected_list, actual_list)
 
+    @skip("Do not print AttributeModel value_iterator")
+    def test_value_iterator(self):
+        for value in self.am.value_iterator():
+            print(value)
+
     @skip("Do not print AttributeModel instance")
     def test_str(self):
         print(self.am)
