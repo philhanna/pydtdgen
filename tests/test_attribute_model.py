@@ -1,5 +1,5 @@
 from unittest import TestCase, skip
-from dtd import AttributeModel
+from dtdgen import AttributeModel
 
 
 class TestAttributeModel(TestCase):

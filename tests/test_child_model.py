@@ -1,6 +1,6 @@
 from unittest import TestCase, skip
 
-from dtd import ChildModel
+from dtdgen import ChildModel
 
 
 class TestChildModel(TestCase):
