@@ -4,6 +4,7 @@ class AttributeModel:
     attribute, based on how it is used in all instances found in the
     source XML.
     """
+
     def __init__(self, name: str):
         """ Creates a new attribute model with the specified name """
         self._name: str = name
@@ -90,7 +91,6 @@ class AttributeModel:
 
     def contains(self, value) -> bool:
         return value in self._values
-
 
     def __str__(self):
         class_name = self.__class__.__name__

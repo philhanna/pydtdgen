@@ -1,6 +1,6 @@
 from typing import List
 
-from dtdgen import ChildModel
+from dtdgen import ChildModel, AttributeModel
 
 
 class ElementModel:
@@ -16,6 +16,7 @@ class ElementModel:
         self._character_content: bool = False
         self._sequenced: bool = True
         self._childseq: List[ChildModel] = []
+        self._attributes: dict[str, AttributeModel] = dict()
 
     @property
     def min_id_values(self):
@@ -42,16 +43,12 @@ class ElementModel:
         self._character_content = value
 
     @property
-    def sequenced(self):
+    def is_sequenced(self):
         return self._sequenced
 
-    @sequenced.setter
-    def sequenced(self, value: bool):
+    @is_sequenced.setter
+    def is_sequenced(self, value: bool):
         self._sequenced = value
-
-    def get_child_model_count(self):
-        """Returns the number of ChildModel elements this parent has."""
-        return len(self._childseq)
 
     def get_child_model(self, index: int = None, name: str = None):
         """Returns the child model by name or index, or None if it does not exist."""
@@ -61,6 +58,24 @@ class ElementModel:
             child = [x for x in self._childseq if x.name == name][0]
             return child
 
+    def get_child_model_count(self):
+        """Returns the number of ChildModel elements this parent has."""
+        return len(self._childseq)
+
     def add_child(self, child_model: ChildModel):
         """ Adds a child element for this element """
         self._childseq.append(child_model)
+
+    def attribute_names(self):
+        """ Generator that yields attribute names, one for each call """
+        for attrname in self._attributes:
+            yield attrname
+
+    def get_attribute_model(self, name: str) -> AttributeModel:
+        return self._attributes.get(name, None)
+
+    def add_attribute(self, attribute_model: AttributeModel) -> None:
+        attrname: str = attribute_model.name
+        self._attributes[attrname] = attribute_model
+
+
