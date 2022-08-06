@@ -1,6 +1,7 @@
 import sys
 from typing import List, Optional
 
+from dtdgen import DocumentModel
 from dtdgen.dtd import DTDGenerator
 from dtdgen.modelbuilder import DocumentModelBuilder
 
@@ -13,9 +14,8 @@ class RunMain:
         self._output_file: Optional[str] = None
         pass
 
-    def run(self):
-        """ Runs the DTD generator on all input files """
-
+    def build(self):
+        """ Builds the document model by parsing the input XML file[s] """
         # Create a DocumentModelBuilder and run input files through it
         model_builder = DocumentModelBuilder()
         for input_file in self._input_files:
@@ -24,8 +24,10 @@ class RunMain:
 
         # Get the resulting document model
         model = model_builder.document_model
+        return model
 
-        # Write output DTD, either to stdout or the specified file
+    def write(self, model: DocumentModel):
+        """ Writes the output DTD, either to stdout or the specified file """
         dtdgen = DTDGenerator(model)
         if self._output_file:
             with open(self._output_file, "wt") as fp:
