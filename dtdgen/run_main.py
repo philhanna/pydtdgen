@@ -14,7 +14,7 @@ class RunMain:
         self._output_file: Optional[str] = None
         pass
 
-    def build(self):
+    def build(self) -> DocumentModel:
         """ Builds the document model by parsing the input XML file[s] """
         # Create a DocumentModelBuilder and run input files through it
         model_builder = DocumentModelBuilder()
