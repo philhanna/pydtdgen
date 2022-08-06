@@ -51,3 +51,15 @@ class DocumentModel:
         """
         element_name = element_model.name
         self._element_map[element_name] = element_model
+
+    def get_element_model(self, name: str) -> ElementModel:
+        """
+        Returns the element model with the specificd name,
+        or None, if it does not exist in the document model
+        """
+        return self._element_map.get(name)
+
+    def element_name_iterator(self):
+        """ Returns an iterator over the list of element model names """
+        for name in self._element_map:
+            yield name
