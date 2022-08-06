@@ -26,7 +26,7 @@ class RunMain:
         model = model_builder.document_model
         return model
 
-    def write(self, model: DocumentModel):
+    def print_dtd(self, model: DocumentModel):
         """ Writes the output DTD, either to stdout or the specified file """
         dtdgen = DTDGenerator(model)
         if self._output_file:
