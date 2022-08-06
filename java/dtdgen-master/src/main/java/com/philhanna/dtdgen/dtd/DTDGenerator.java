@@ -246,6 +246,7 @@ public class DTDGenerator {
          return;
 
       log.info(String.format("Printing DTD for element <%s>", elementName));
+
       // Immediately add it to the list so we won't print it again
 
       alreadyPrinted.add(elementName);
