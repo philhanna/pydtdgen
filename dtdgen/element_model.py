@@ -54,6 +54,10 @@ class ElementModel:
     def is_sequenced(self, value: bool):
         self._sequenced = value
 
+    def child_iterator(self):
+        for child in self._childseq:
+            yield child
+
     def get_child_model(self, index: int = None, name: str = None):
         """Returns the child model by name or index, or None if it does not exist."""
         if index is not None:
