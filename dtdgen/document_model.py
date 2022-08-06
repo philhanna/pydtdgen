@@ -10,10 +10,10 @@ class DocumentModel:
     def __init__(self):
         self._element_map: dict[str, ElementModel] = dict()
 
-    def get_root_element_name(self):
+    def get_root_element_name(self) -> str:
         """
         Returns the root element name. This is determined by looking at
-        all elements in the element name list and deleting of their known
+        all elements in the element name list and deleting all their known
         child elements. What remains should be the root element name (if
         the XML is well-formed)
         """
