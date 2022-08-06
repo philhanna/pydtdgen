@@ -5,7 +5,7 @@ from dtdgen import ElementModel
 
 class StackEntry:
     """
-    StackEntry is a data structure that is put on the stack for each nested element
+    A data structure that is put on the stack for each nested element
     """
     def __init__(self, element_model: ElementModel):
         self._element_model: ElementModel = element_model
