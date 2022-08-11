@@ -16,5 +16,13 @@ class DTDElementModel:
     def element_name(self):
         return self._element_name
 
+    @property
+    def element_model(self):
+        return self._element_model
+
+    @property
+    def n_children(self):
+        return self._n_children
+
     def __repr__(self):
         return str(self)

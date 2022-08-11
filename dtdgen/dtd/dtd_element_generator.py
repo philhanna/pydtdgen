@@ -1,5 +1,7 @@
+from typing import Optional
+
 from dtdgen import ElementModel
-from dtdgen.dtd import DTDElementModel
+from dtdgen.dtd import DTDElementModel, DTDPCDATAElement, DTDEmptyElement, DTDMixedContentElement
 
 
 class DTDElementGenerator:
@@ -13,7 +15,7 @@ class DTDElementGenerator:
         it to the specified output.
         """
         element_model: ElementModel = self._element_model
-        dtd_element_model: DTDElementModel = None
+        dtd_element_model: Optional[DTDElementModel] = None
 
         # Get the number of children this element can have
 
@@ -22,5 +24,16 @@ class DTDElementGenerator:
 
         # No children - must be either EMPTY or have #PCDATA content
         # Has children - either element content or mixed content
+
+        if not n_children:
+            if has_character_content:
+                dtd_element_model = DTDPCDATAElement(element_model)
+            else:
+                dtd_element_model = DTDEmptyElement(element_model)
+        else:
+            if has_character_content:
+                dtd_element_model = DTDMixedContentElement(element_model)
+            else:
+                dtd_element_model = DTDChildContentElement(element_model)
 
         pass
