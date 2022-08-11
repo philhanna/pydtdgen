@@ -7,10 +7,12 @@ class ElementModel:
     """Keeps track of the possible contents of an element, based on all
     instances of it found in the source XML."""
 
+    # Minimum number of attribute values that must appear for the
+    # attribute to be regarded as an ID value
+    MIN_ID_VALUES = 10
+
     def __init__(self, name: str):
-        """
-        Creates a new ElementModel with the specified name
-        """
+        """ Creates a new ElementModel with the specified name """
         self._name: str = name
         self._occurences: int = 0
         self._character_content: bool = False
@@ -23,16 +25,9 @@ class ElementModel:
         return self._name
 
     @property
-    def min_id_values(self):
-        """Minimum number of attribute values that must appear for the
-        attribute to be regarded as an ID value"""
-        return 10
-
-    @property
     def occurences(self):
-        """
-        Returns the number of times this element was found in the input XML
-        """
+        """ Returns the number of times this element was found
+            in the input XML """
         return self._occurences
 
     def increment_occurrences(self):
@@ -85,5 +80,22 @@ class ElementModel:
     def add_attribute(self, attribute_model: AttributeModel) -> None:
         attrname: str = attribute_model.name
         self._attributes[attrname] = attribute_model
+
+    def id_attribute_name(self):
+        for attr_name, attr_model in self._attributes.items():
+            # If every value of the attribute is distinct, and there are
+            # at least MIN_ID_VALUES, treat it as an ID. ID values must be
+            # Names. Only allowed one ID attribute per element type.
+            if attr_model.all_names \
+                    and attr_model.unique \
+                    and attr_model.occurrences >= ElementModel.MIN_ID_VALUES:
+                return attr_name
+
+            # TODO: This may give the wrong answer. We should check
+            # whether the value sets of two candidate-ID attributes
+            # overlap, in which case they can't both be IDs !!
+
+        return None
+
 
 
