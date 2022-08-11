@@ -42,3 +42,18 @@ class TestElementModel(TestCase):
         self.assertEqual("age", actual.name)
         self.assertEqual(0, actual.occurrences)
 
+    def test_id_attribute_name(self):
+        em = ElementModel("stooge")
+
+        am = AttributeModel("name")
+        am.occurrences = 100
+        em.add_attribute(am)
+        actual = em.id_attribute_name()
+
+        am = AttributeModel("rank")
+        em.add_attribute(am)
+        actual = em.id_attribute_name()
+
+        expected = "name"
+        self.assertEqual(expected, actual)
+
