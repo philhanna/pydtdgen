@@ -1,4 +1,4 @@
-""" Classes to generate the DTD for various elements and attributes """
+"""Classes to generate the DTD for various elements and attributes"""
 from .dtd_element_model import DTDElementModel
 from .dtd_pcdata_element import DTDPCDATAElement
 from .dtd_empty_element import DTDEmptyElement

@@ -8,21 +8,19 @@ from dtdgen.modelbuilder import StackEntry
 
 
 class DocumentModelBuilder(ContentHandler):
-    """
-    Analyzes an instance of an XML document to build a documentModel of
-    its structure
-    """
+    """Analyzes an instance of an XML document to build a documentModel
+    of its structure"""
     max_enumeration_values = 20
     max_id_values = 100000
 
     def __init__(self):
-        """ Creates a new DocumentModelBuilder """
+        """Creates a new DocumentModelBuilder"""
         super().__init__()
         self.document_model = DocumentModel()
         self.element_stack: List[StackEntry] = []
 
     def run(self, fp):
-        """ Runs an XML input stream through the model builder """
+        """Runs an XML input stream through the model builder"""
         try:
             parser: XMLReader = make_parser()
             parser.setContentHandler(self)
@@ -31,7 +29,7 @@ class DocumentModelBuilder(ContentHandler):
             fp.close()
 
     def characters(self, content):
-        """ Make a note whether significant character data is found in the element """
+        """Make a note whether significant character data is found in the element"""
         if len(self.element_stack) > 0:
             element_model: ElementModel = self.element_stack[0].element_model
             if not element_model.has_character_content:
@@ -39,11 +37,9 @@ class DocumentModelBuilder(ContentHandler):
                     element_model.has_character_content(True)
 
     def startElement(self, name, attrs):
-        """
-        Handles the start of an element. Records information about the
+        """Handles the start of an element. Records information about the
         position of this element relative to its parent, and about the
-        attributes of the element.
-        """
+        attributes of the element."""
 
         # Create an entry in the Element list, or locate the cached entry
         element_model: ElementModel = self.document_model.get_element_model(name)
@@ -61,4 +57,3 @@ class DocumentModelBuilder(ContentHandler):
         # Merge the new attribute list into the existing list for the element.
         for attrname in attrs.getNames():
             pass
-

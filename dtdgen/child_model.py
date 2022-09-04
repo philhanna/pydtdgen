@@ -1,11 +1,10 @@
 class ChildModel:
-    """
-    Records information about the presence of a child element within its
+    """Records information about the presence of a child element within its
     parent element. If the parent element is sequenced, then the child
-    elements always occur in sequence with the given frequency.
-    """
+    elements always occur in sequence with the given frequency."""
+
     def __init__(self, name: str):
-        """ Creates a ChildModel of the specified child element name """
+        """Creates a ChildModel of the specified child element name"""
         self._name: str = name
         self._repeatable: bool = False
         self._optional: bool = True
