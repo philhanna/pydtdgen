@@ -8,8 +8,8 @@ class AttributeModel:
         self._name: str = name
         self._occurrences: int = 0
         self._unique: bool = True
-        self._all_names: bool = True
-        self._all_nmtokens: bool = True
+        self._all_names: bool = False
+        self._all_nmtokens: bool = False
         self._values: dict[str, str] = dict()
 
     @property
@@ -75,6 +75,7 @@ class AttributeModel:
     def add_value(self, value: str):
         if value not in self._values:
             self._values[value] = ""
+        self.all_names = all([AttributeModel.is_name(x) for x in self.values])
 
     def value_iterator(self):
         """An iterator over the values for this attribute"""
@@ -87,7 +88,7 @@ class AttributeModel:
     def __str__(self):
         class_name = self.__class__.__name__
         return (
-            f"{class_name} [name={self.name}"
+            f"{class_name}[name={self.name}"
             f", occurrences={self.occurrences}"
             f", unique={self.unique}"
             f", values={self.values}"
@@ -95,3 +96,13 @@ class AttributeModel:
             f", allNMTOKENS={self.all_nmtokens}"
             "]"
         )
+
+    @staticmethod
+    def is_nmtoken(x: str) -> bool:
+        if len(x) < 1:
+            return False
+
+    @staticmethod
+    def is_name(x: str) -> bool:
+        return x.isidentifier()
+

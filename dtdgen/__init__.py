@@ -1,9 +1,3 @@
-from .attribute_model import AttributeModel
-from .child_model import ChildModel
-from .element_model import ElementModel
-from .document_model import DocumentModel
-from .run_main import RunMain
-
 __version__ = "0.0.3"
 __version_info__ = tuple([ int(num) for num in __version__.split('.')])
 
@@ -30,6 +24,13 @@ MIN_ID_VALUES = 10
 
 # Maximum number of attribute values to be saved while checking for uniqueness
 MAX_ID_VALUES = 100000
+
+from .attribute_model import AttributeModel
+from .child_model import ChildModel
+from .element_model import ElementModel
+from .document_model import DocumentModel
+from .run_main import RunMain
+
 
 __all__ = [
     'MIN_ENUMERATION_INSTANCES',

@@ -30,6 +30,10 @@ class ElementModel:
             in the input XML """
         return self._occurences
 
+    @occurences.setter
+    def occurences(self, value: int):
+        self._occurences = value
+
     def increment_occurrences(self):
         self._occurences += 1
 
