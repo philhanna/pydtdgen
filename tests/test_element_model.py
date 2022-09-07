@@ -47,6 +47,7 @@ class TestElementModel(TestCase):
 
         am = AttributeModel("name")
         am.occurrences = 100
+        am.all_names = True
         em.add_attribute(am)
         actual = em.id_attribute_name()
 

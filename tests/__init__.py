@@ -5,8 +5,10 @@ __all__ = [
 
 def get_testdata_dir():
     import os
-    root_dir = os.path.dirname(os.path.abspath(__file__))
-    testdata_dir = os.path.join(root_dir, "testdata")
+    init_file = os.path.abspath(__file__)
+    tests_dir = os.path.dirname(init_file)
+    project_root_dir = os.path.abspath(os.path.join(tests_dir, ".."))
+    testdata_dir = os.path.join(project_root_dir, "testdata")
     return testdata_dir
 
 

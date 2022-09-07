@@ -16,8 +16,8 @@ class TestAttributeModel(TestCase):
         am = self.am
         self.assertEqual(0, am.occurrences)
         self.assertTrue(am.unique)
-        self.assertTrue(am.all_names)
-        self.assertTrue(am.all_nmtokens)
+        self.assertFalse(am.all_names)
+        self.assertFalse(am.all_nmtokens)
 
     def test_get_first_value(self):
         """ Makes sure that the list is not alphabetical,
@@ -50,12 +50,3 @@ class TestAttributeModel(TestCase):
         expected_list = ["Larry", "Curly", "Moe", "Shemp", "Curly Joe"]
         actual_list = self.am.values
         self.assertListEqual(expected_list, actual_list)
-
-    @skip("Do not print AttributeModel value_iterator")
-    def test_value_iterator(self):
-        for value in self.am.value_iterator():
-            print(value)
-
-    @skip("Do not print AttributeModel instance")
-    def test_str(self):
-        print(self.am)
