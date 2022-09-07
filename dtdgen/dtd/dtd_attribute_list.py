@@ -9,6 +9,10 @@ class DTDAttributeList:
         self._element_model: ElementModel = element_model
         self._alist: List[str] = []
 
+    @property
+    def alist(self):
+        return self._alist
+
     def __str__(self):
         element_model = self._element_model
         element_name = element_model.name
