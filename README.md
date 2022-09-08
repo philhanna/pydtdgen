@@ -5,3 +5,6 @@ See [dtdgen](http://saxon.sourceforge.net/dtdgen.html)
 
 ## source code repository
 [https://github.com/philhanna/pydtdgen](https://github.com/philhanna/pydtdgen)
+
+## DTD reference
+[https://www.w3schools.com/xml/xml_dtd_elements.asp](https://www.w3schools.com/xml/xml_dtd_elements.asp)
