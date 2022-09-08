@@ -1,3 +1,6 @@
+import string
+
+
 class AttributeModel:
     """Keeps track of what is known about the type and value of an element
     attribute, based on how it is used in all instances found in the
@@ -76,6 +79,7 @@ class AttributeModel:
         if value not in self._values:
             self._values[value] = ""
         self.all_names = all([AttributeModel.is_name(x) for x in self.values])
+        self.all_nmtokens = all([AttributeModel.is_nmtoken(x) for x in self.values])
 
     def value_iterator(self):
         """An iterator over the values for this attribute"""
@@ -98,9 +102,28 @@ class AttributeModel:
         )
 
     @staticmethod
-    def is_nmtoken(x: str) -> bool:
-        if len(x) < 1:
+    def is_nmtoken(s: str) -> bool:
+        """Returns True if the string is not empty and if all its characters
+        are found in the specified list.
+
+        Source: https://en.wikipedia.org/wiki/Combining_character"""
+        if len(s) < 1:
             return False
+        for c in s:
+            valid = any([
+                c in string.ascii_uppercase,
+                c in string.ascii_lowercase,
+                c in string.digits,
+                c in "._-:",
+                "\u0300" <= c <= "\u036F",
+                "\u1AB0" <= c <= "\u1AFF",
+                "\u1DC0" <= c <= "\u1DFF",
+                "\u20D0" <= c <= "\u20FF",
+                "\uFE20" <= c <= "\uFE2F",
+            ])
+            if not valid:
+                return False
+        return True
 
     @staticmethod
     def is_name(x: str) -> bool:

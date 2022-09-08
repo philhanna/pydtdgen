@@ -50,3 +50,43 @@ class TestAttributeModel(TestCase):
         expected_list = ["Larry", "Curly", "Moe", "Shemp", "Curly Joe"]
         actual_list = self.am.values
         self.assertListEqual(expected_list, actual_list)
+
+    def test_all_names(self):
+        self.assertFalse(self.am.all_names)
+
+    def test_all_names_true(self):
+        am = AttributeModel("original")
+        am.add_value("Larry")
+        am.add_value("Curly")
+        am.add_value("Moe")
+        self.assertTrue(am.all_names)
+
+    def test_all_nmtokens(self):
+        self.assertFalse(self.am.all_nmtokens)
+
+    def test_all_nmtokens_true(self):
+        am = AttributeModel("original")
+        am.add_value("Larry")
+        am.add_value("Curly")
+        am.add_value("Moe")
+        self.assertTrue(am.all_nmtokens)
+
+    def test_is_nmtoken_true(self):
+        # Values taken from https://books.xmlschemata.org/relaxng/ch19-77231.html
+        for s in [
+            "Snoopy",
+            "CMS",
+            "1950-10-04",
+            "0836217462",
+            ":memory:",
+        ]:
+            self.assertTrue(AttributeModel.is_nmtoken(s), f"'{s}' is not a valid NMTOKEN")
+
+    def test_is_nmtoken_false(self):
+        for s in [
+            "Curly Joe",        # Embedded space
+            "",                 # Empty string
+            "\u0001",           # Too low
+            "\uFFFF",           # Too high
+        ]:
+            self.assertFalse(AttributeModel.is_nmtoken(s), f"'{s}' is a valid NMTOKEN!")
