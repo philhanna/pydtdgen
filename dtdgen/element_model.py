@@ -14,7 +14,7 @@ class ElementModel:
     def __init__(self, name: str):
         """ Creates a new ElementModel with the specified name """
         self._name: str = name
-        self._occurences: int = 0
+        self._occurrences: int = 0
         self._character_content: bool = False
         self._sequenced: bool = True
         self._childseq: List[ChildModel] = []
@@ -25,17 +25,17 @@ class ElementModel:
         return self._name
 
     @property
-    def occurences(self):
+    def occurrences(self):
         """ Returns the number of times this element was found
             in the input XML """
-        return self._occurences
+        return self._occurrences
 
-    @occurences.setter
-    def occurences(self, value: int):
-        self._occurences = value
+    @occurrences.setter
+    def occurrences(self, value: int):
+        self._occurrences = value
 
     def increment_occurrences(self):
-        self._occurences += 1
+        self._occurrences += 1
 
     @property
     def has_character_content(self):

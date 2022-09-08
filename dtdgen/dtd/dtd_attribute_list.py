@@ -32,10 +32,10 @@ class DTDAttributeList:
 
             # If the attribute is present on every instance of the
             # element, treat it as required
-            required: bool = (attr_model.occurrences == element_model.occurences)
+            required: bool = (attr_model.occurrences == element_model.occurrences)
 
             # If there is only one attribute value, and at least
-            # MIN_FIXED occurences of it, treat it as FIXED
+            # MIN_FIXED occurrences of it, treat it as FIXED
             is_fixed: bool = all([
                 required,
                 attr_model.value_count == 1,
