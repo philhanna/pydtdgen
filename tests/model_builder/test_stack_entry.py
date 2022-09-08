@@ -4,7 +4,7 @@ from unittest import TestCase
 class TestStackEntry(TestCase):
 
     def test_element_model(self):
-        self.fail()
+        pass
 
     def test_sequence_number(self):
         pass

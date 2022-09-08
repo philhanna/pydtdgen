@@ -36,7 +36,7 @@ class DocumentModelBuilder(ContentHandler):
             if not element_model.has_character_content:
                 for c in content:
                     if c not in string.whitespace:
-                        element_model.has_character_content(True)
+                        element_model.has_character_content = True
                         break
 
     def startElement(self, name, attrs):

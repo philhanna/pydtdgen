@@ -1,15 +1,11 @@
 from typing import List
 
-from dtdgen import ChildModel, AttributeModel
+from dtdgen import ChildModel, AttributeModel, MIN_ID_VALUES
 
 
 class ElementModel:
     """Keeps track of the possible contents of an element, based on all
     instances of it found in the source XML."""
-
-    # Minimum number of attribute values that must appear for the
-    # attribute to be regarded as an ID value
-    MIN_ID_VALUES = 10
 
     def __init__(self, name: str):
         """ Creates a new ElementModel with the specified name """
@@ -38,7 +34,7 @@ class ElementModel:
         self._occurrences += 1
 
     @property
-    def has_character_content(self):
+    def has_character_content(self) -> bool:
         return self._character_content
 
     @has_character_content.setter
@@ -94,7 +90,7 @@ class ElementModel:
             if all([
                 attr_model.all_names,
                 attr_model.unique,
-                attr_model.occurrences >= ElementModel.MIN_ID_VALUES,
+                attr_model.occurrences >= MIN_ID_VALUES,
             ]):
                 found.append(attr_name)
 
