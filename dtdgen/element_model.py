@@ -90,9 +90,11 @@ class ElementModel:
             # If every value of the attribute is distinct, and there are
             # at least MIN_ID_VALUES, treat it as an ID. ID values must be
             # Names. Only allowed one ID attribute per element type.
-            if attr_model.all_names \
-                    and attr_model.unique \
-                    and attr_model.occurrences >= ElementModel.MIN_ID_VALUES:
+            if all([
+                attr_model.all_names,
+                attr_model.unique,
+                attr_model.occurrences >= ElementModel.MIN_ID_VALUES,
+            ]):
                 return attr_name
 
             # TODO: This may give the wrong answer. We should check
