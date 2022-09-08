@@ -86,6 +86,7 @@ class ElementModel:
         self._attributes[attrname] = attribute_model
 
     def id_attribute_name(self):
+        found: list[str] = list()
         for attr_name, attr_model in self._attributes.items():
             # If every value of the attribute is distinct, and there are
             # at least MIN_ID_VALUES, treat it as an ID. ID values must be
@@ -95,13 +96,17 @@ class ElementModel:
                 attr_model.unique,
                 attr_model.occurrences >= ElementModel.MIN_ID_VALUES,
             ]):
-                return attr_name
+                found.append(attr_name)
 
-            # TODO: This may give the wrong answer. We should check
-            # whether the value sets of two candidate-ID attributes
-            # overlap, in which case they can't both be IDs !!
-
-        return None
-
+        nfound = len(found)
+        if nfound == 0:
+            # No candidates found
+            return None
+        if nfound == 1:
+            # Found exactly one candidate.  This must be the one.
+            return found[0]
+        if nfound > 1:
+            # More than one candidate.  Can't both be the ID
+            return None
 
 
