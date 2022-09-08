@@ -1,10 +1,11 @@
+import string
 from typing import List
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from xml.sax.xmlreader import XMLReader
 
 from dtdgen import DocumentModel, ElementModel
-from dtdgen.modelbuilder import StackEntry
+from dtdgen.model_builder import StackEntry
 
 
 class DocumentModelBuilder(ContentHandler):
@@ -33,8 +34,10 @@ class DocumentModelBuilder(ContentHandler):
         if len(self.element_stack) > 0:
             element_model: ElementModel = self.element_stack[0].element_model
             if not element_model.has_character_content:
-                if not content or not content.strip():
-                    element_model.has_character_content(True)
+                for c in content:
+                    if c not in string.whitespace:
+                        element_model.has_character_content(True)
+                        break
 
     def startElement(self, name, attrs):
         """Handles the start of an element. Records information about the

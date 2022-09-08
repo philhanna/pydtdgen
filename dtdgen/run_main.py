@@ -3,7 +3,7 @@ from typing import List, Optional
 
 from dtdgen import DocumentModel
 from dtdgen.dtd import DTDGenerator
-from dtdgen.modelbuilder import DocumentModelBuilder
+from dtdgen.model_builder import DocumentModelBuilder
 
 
 class RunMain:

@@ -74,3 +74,17 @@ class TestElementModel(TestCase):
         actual = em.id_attribute_name()
 
         self.assertIsNone(actual, f"No ID attribute possible but '{actual}' was selected")
+
+    def test_occurrences_setter(self):
+        em = ElementModel("stooge")
+        self.assertEqual(0, em.occurrences) # Default value
+        em.occurrences = 86
+        self.assertEqual(86, em.occurrences)
+
+    def test_increment_occurrences(self):
+        em = ElementModel("stooge")
+        self.assertEqual(0, em.occurrences) # Default value
+        em.increment_occurrences()
+        em.increment_occurrences()
+        em.increment_occurrences()
+        self.assertEqual(3, em.occurrences)
