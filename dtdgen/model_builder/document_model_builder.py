@@ -4,15 +4,13 @@ from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from xml.sax.xmlreader import XMLReader
 
-from dtdgen import DocumentModel, ElementModel
+from dtdgen import DocumentModel, ElementModel, AttributeModel, MAX_ENUMERATION_VALUES, MAX_ID_VALUES
 from dtdgen.model_builder import StackEntry
 
 
 class DocumentModelBuilder(ContentHandler):
     """Analyzes an instance of an XML document to build a documentModel
     of its structure"""
-    max_enumeration_values = 20
-    max_id_values = 100000
 
     def __init__(self):
         """Creates a new DocumentModelBuilder"""
@@ -22,12 +20,9 @@ class DocumentModelBuilder(ContentHandler):
 
     def run(self, fp):
         """Runs an XML input stream through the model builder"""
-        try:
-            parser: XMLReader = make_parser()
-            parser.setContentHandler(self)
-            parser.parse(fp)
-        finally:
-            fp.close()
+        parser: XMLReader = make_parser()
+        parser.setContentHandler(self)
+        parser.parse(fp)
 
     def characters(self, content):
         """Make a note whether significant character data is found in the element"""
@@ -58,5 +53,18 @@ class DocumentModelBuilder(ContentHandler):
 
         # Handle the attributes accumulated for this element.
         # Merge the new attribute list into the existing list for the element.
-        for attrname in attrs.getNames():
-            pass
+        for attr_name in attrs.getNames():
+            attr_value: str = attrs.getValue(attr_name)
+            attr_model: AttributeModel = element_model.get_attribute_model(attr_name)
+            if not attr_model:
+                attr_model = AttributeModel(attr_name)
+                element_model.add_attribute(attr_model)
+            if not attr_model.contains(attr_value):
+                # We haven't seen this attribute value before
+                attr_model.add_value(attr_value)
+            else:
+                # We have seen this attribute value before
+                attr_model.unique = False
+            attr_model.increment_occurrences()
+
+        # Now keep track of the nesting and sequencing of child elements

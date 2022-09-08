@@ -22,8 +22,8 @@ class StackEntry:
         self._sequence_number += 1
 
     @property
-    def latest_child_name(self):
-        return
+    def latest_child_name(self) -> str:
+        return self._latest_child_name
 
     @latest_child_name.setter
     def latest_child_name(self, value: str):
