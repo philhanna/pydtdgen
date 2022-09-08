@@ -58,3 +58,19 @@ class TestElementModel(TestCase):
         expected = "name"
         self.assertEqual(expected, actual)
 
+    def test_id_attribute_name_overlapping(self):
+        em = ElementModel("stooge")
+
+        am = AttributeModel("name")
+        am.occurrences = 100
+        am.all_names = True
+        em.add_attribute(am)
+
+        am = AttributeModel("rank")
+        am.occurrences = 100
+        am.all_names = True
+        em.add_attribute(am)
+
+        actual = em.id_attribute_name()
+
+        self.assertIsNone(actual, f"No ID attribute possible but '{actual}' was selected")
