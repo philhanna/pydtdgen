@@ -56,41 +56,6 @@ class DTDGenerator(ContentHandler):
         parse(filename, handler=self)
 
 
-# ============================================================
-# Internal functions
-# ============================================================
-
-def is_valid_nmtoken(s: str) -> bool:
-    """Test whether a string is an XML NMTOKEN.
-    TODO: This is currently an incomplete test, it treats all non-ASCII characters
-    as being valid in NMTOKENs."""
-    if not len(s):
-        return False
-    for c in s:
-        if not any([
-            c in string.ascii_uppercase,
-            c in string.ascii_lowercase,
-            c in string.digits,
-            c in '._-:',
-            ord(c) > 128,
-        ]):
-            return False
-    return True
-
-
-def is_valid_name(s: str) -> bool:
-    """Test whether a string is an XML name.
-        TODO: This is currently an incomplete test, it treats all non-ASCII characters
-        as being valid in names."""
-    if not is_valid_nmtoken(s):
-        return False
-    c = s[0]
-    return not any([
-        c in string.digits,
-        c == '.',
-        c == '-',
-    ])
-
 
 # ============================================================
 # Mainline
