@@ -1,0 +1,2 @@
+class ElementDetails:
+    pass
