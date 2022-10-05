@@ -19,6 +19,7 @@ def escape(s: str) -> str:
     only in XML.
     """
     outstr = ""
+    fmt2 = lambda i: ("0" + str(i))[-2:]
     for c in s:
         match c:
             case '<':
@@ -34,7 +35,7 @@ def escape(s: str) -> str:
             case _ if chr(0x1f) < c < chr(0x7f):
                 outstr += c
             case _:
-                outstr += f"&#{ord(c)};"
+                outstr += "&#" + fmt2(ord(c)) + ";"
         pass
     return outstr
 
