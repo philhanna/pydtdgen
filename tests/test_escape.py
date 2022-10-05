@@ -10,3 +10,4 @@ class Test(TestCase):
         expected = "Now, &#39;Tommy&#39;&#10;"
         actual = escape(s)
         self.assertEqual(expected, actual)
+
