@@ -1,3 +1,6 @@
+from dtdgen import ChildDetails
+
+
 class ElementDetails:
     """A data structure to keep information about element types"""
     def __init__(self, name: str):
@@ -6,7 +9,7 @@ class ElementDetails:
         self._has_character_content: bool = False
         self._sequenced: bool = True
         self._children: dict = {}
-        self._childseq: list = []
+        self._childseq: list[ChildDetails] = []
         self._attributes: dict = {}
 
     @property
@@ -50,7 +53,7 @@ class ElementDetails:
         self._children = value
 
     @property
-    def childseq(self) -> list:
+    def childseq(self) -> list[ChildDetails]:
         return self._childseq
 
     @childseq.setter
