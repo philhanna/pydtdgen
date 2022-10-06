@@ -67,3 +67,12 @@ class TestDTDGenerator(TestCase):
         regexp = re.compile(r"ATTLIST ConfirmationsSetting id \S+ (\S+)")
         expected, actual = self.extract_comparison_data(regexp)
         self.assertEqual(expected, actual)
+
+    def test_breakpoint_manager(self):
+        app = DTDGenerator()
+        app.run(self.input_file)
+        with StringIO() as out, stdout_redirected(out):
+            app.print_dtd()
+        regexp = re.compile(r"<!ELEMENT breakpoint-manager (.*)")
+        expected, actual = self.extract_comparison_data(regexp)
+        self.assertEqual(expected, actual)
