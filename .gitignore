@@ -1,6 +1,7 @@
 *.swp
 *.pyc
 *.pyo
+*.class
 __pycache__
 .idea/
 venv/
