@@ -214,7 +214,7 @@ class DTDGenerator(ContentHandler):
             # For sequencing, we're interested in consecutive groups
             # of the same child element type
             is_first_in_group: bool = parent.latest_child is None or parent.latest_child != name
-            if not is_first_in_group:
+            if is_first_in_group:
                 seq += 1
                 parent.sequence_number += 1
             parent.latest_child = name
