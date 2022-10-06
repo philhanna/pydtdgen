@@ -1,7 +1,7 @@
 from xml.sax import parse
 from xml.sax.handler import ContentHandler
 
-from dtdgen import ElementDetails, StackEntry, escape
+from dtdgen import ElementDetails, StackEntry, escape, AttributeDetails, is_valid_name, is_valid_nmtoken, ChildDetails
 
 
 class DTDGenerator(ContentHandler):
@@ -150,7 +150,107 @@ class DTDGenerator(ContentHandler):
         """Handle the start of an element. Record information about
         the position of this element relative to its parent, and about the
          attributes of the element."""
-        super().startElement(name, attrs)
+
+        # Create an entry in the Element List, or locate the existing entry
+        ed: ElementDetails = self.element_list.get(name, None)
+        if ed is None:
+            ed = ElementDetails(name)
+            self.element_list[name] = ed
+
+        # Retain the associated element details object and
+        # initialize sequence numbering of child element types
+        se: StackEntry = StackEntry(element_details=ed, sequence_number=-1)
+
+        # Handle the attributes accumulated for this element.
+        # Merge the new attribute list into the existing list
+        # for the element
+        for attname, val in attrs.items():
+            ad: AttributeDetails = ed.attributes.get(attname, None)
+            if not ad:
+                ad = AttributeDetails(attname)
+                ed.attributes[attname] = ad
+            if val not in ad.values:
+
+                # We haven't seen this attribute value before
+                ad.values.add(val)
+
+                # Check whether attribute value is a valid name
+                if ad.all_names and not is_valid_name(val):
+                    ad.all_names = False
+
+                # Check whether attribute valud is a valid NMTOKEN
+                if ad.all_nmtokens and not is_valid_nmtoken(val):
+                    ad.all_nmtokens = False
+
+                # For economy, don't save the new value unless it's needed;
+                # it's needed only if we're looking for ID values or
+                # enumerated values
+                if ad.unique \
+                        and ad.all_names \
+                        and ad.occurrences <= self.MAX_ID_VALUES:
+                    ad.values.add(val)
+                elif len(ad.values) <= self.MAX_ENUMERATION_VALUES:
+                    ad.values.add(val)
+
+            else:
+                # We've seen this attribute before
+                ad.unique = False
+
+            ad.occurrences += 1
+
+        # Now keep track of the nesting and sequencing of child elements
+        if len(self.element_stack) > 0:
+            parent: StackEntry = self.element_stack[-1]
+            parent_details: ElementDetails = parent.element_details
+            seq: int = parent.sequence_number
+
+            # For sequencing, we're interested in consecutive groups
+            # of the same child element type
+            is_first_in_group: bool = parent.latest_child is None or parent.latest_child != name
+            if not is_first_in_group:
+                seq += 1
+                parent.sequence_number += 1
+            parent.latest_child = name
+
+            # If we've seen this child of this parent before, get the details
+            children = parent_details.children
+            c: ChildDetails = children.get(name, None)
+            if c is None:
+                # This is the first time we'eve seen this child belonging to
+                # this parent
+                c = ChildDetails()
+                c.name = name
+                c.position = seq
+                c.repeatable = False
+                c.optional = False
+                children[name] = c
+                parent_details.childseq.append(c)
+
+                # If the first time we see this child is not on the first
+                # instance of the parent, then we allow it as an optional
+                # element
+                if parent_details.occurrences != 1:
+                    c.optional = True
+            else:
+                # If it's the first occurrence of the parent element,
+                # and we've seen this child before,
+                # and it's the first of a new group,
+                # then the child occurrences are not consecutive
+                if parent_details.occurrences == 1 and is_first_in_group:
+                    parent_details.sequenced = False
+
+                # Check whether the position of this group of children
+                # in this parent element is the same as its position
+                # in previous instances of the parent.
+                if len(parent_details.childseq) <= seq or \
+                        parent_details.childseq[seq].name == name:
+                    parent_details.sequenced = False
+
+            # If there's more than one child element, mark it as repeatable
+            if not is_first_in_group:
+                c.repeatable = True
+
+        self.element_stack.append(se)
 
     def endElement(self, name):
         """Handle the end of element. If sequenced, check that all
@@ -176,7 +276,6 @@ class DTDGenerator(ContentHandler):
                 if ch > ' ':
                     ed.has_character_content = True
                     break
-
 
 
 # ============================================================
