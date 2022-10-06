@@ -93,7 +93,7 @@ class DTDGenerator(ContentHandler):
 
             # MIXED content
             if len(child_keys) > 0 and ed.has_character_content:
-                sb = f"<!ELEMENT {element_name} ( #PCDATA {' | '.join(child_keys)} )* >"
+                sb = f"<!ELEMENT {element_name} ( #PCDATA | {' | '.join(child_keys)} )* >"
                 print(sb)
 
             # Now examine the attributes encountered for this element type
