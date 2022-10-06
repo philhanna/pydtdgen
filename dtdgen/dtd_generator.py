@@ -137,7 +137,7 @@ class DTDGenerator(ContentHandler):
                     don_id = True
                 elif isfixed:
                     val: str = list(ad.values)[0]
-                    print(f'{tokentype} #FIXID "{escape(val)}" >')
+                    print(f'{tokentype} #FIXED "{escape(val)}" >')
                 elif isenum:
                     vals = " | ".join([str(val) for val in ad.values])
                     print(f"( {vals} )", end='')
@@ -164,6 +164,9 @@ class DTDGenerator(ContentHandler):
         # Retain the associated element details object and
         # initialize sequence numbering of child element types
         se: StackEntry = StackEntry(element_details=ed, sequence_number=-1, latest_child=None)
+
+        # Count occurrences of this element type
+        ed.occurrences += 1
 
         # Handle the attributes accumulated for this element.
         # Merge the new attribute list into the existing list
