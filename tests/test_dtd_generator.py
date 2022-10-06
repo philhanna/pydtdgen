@@ -1,10 +1,11 @@
 import os.path
 import re
 import subprocess
+from io import StringIO
 from unittest import TestCase
 
 from dtdgen import DTDGenerator
-from tests import testdata, project_root_dir, tmp
+from tests import testdata, project_root_dir, tmp, stdout_redirected
 
 
 class TestDTDGenerator(TestCase):
@@ -57,4 +58,16 @@ class TestDTDGenerator(TestCase):
     def test_nmtoken_run(self):
         app = DTDGenerator()
         app.run(self.input_file)
-        app.print_dtd()
+        with StringIO() as out, stdout_redirected(out):
+            app.print_dtd()
+
+    def test_required(self):
+        regexp = re.compile(r"ATTLIST ConfirmationsSetting id \S+ (\S+)")
+        expected, actual = self.extract_comparison_data(regexp)
+        self.assertEqual(expected, actual)
+
+    def test_required_run(self):
+        app = DTDGenerator()
+        app.run(self.input_file)
+        with StringIO() as out, stdout_redirected(out):
+            app.print_dtd()
