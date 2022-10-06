@@ -171,7 +171,7 @@ class DTDGenerator(ContentHandler):
         for attname, val in attrs.items():
             ad: AttributeDetails = ed.attributes.get(attname, None)
             if not ad:
-                ad = AttributeDetails(name, 0, False, set(), False, False)
+                ad = AttributeDetails(name, 0, True, set(), True, True)
                 ed.attributes[attname] = ad
             if val not in ad.values:
 

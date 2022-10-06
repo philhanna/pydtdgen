@@ -13,7 +13,7 @@ class TestDTDGenerator(TestCase):
         input_file = os.path.join(testdata, "workspace.xml")
 
         python_output = os.path.join(tmp, "workspace_p.dtd")
-        python_program = os.path.join(project_root_dir, "dtdgen.py")
+        python_program = "./dtdgen.py"
         parms = [python_program, input_file]
         cp = subprocess.run(parms, cwd=project_root_dir, check=True, capture_output=True)
         output = cp.stdout
