@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-
 from dtdgen import ElementDetails
 
 

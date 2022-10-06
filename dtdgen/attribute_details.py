@@ -1,12 +1,12 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
 class AttributeDetails:
     """a data structure to keep information about attribute types"""
     name: str
-    occurrences: int
-    unique: bool
-    values: set[str]
-    all_names: bool
-    all_nmtokens: bool
+    occurrences: int = 0
+    unique: bool = True
+    values: set[str] = field(default_factory=set)
+    all_names: bool = True
+    all_nmtokens: bool = True
