@@ -52,6 +52,7 @@ class DTDGenerator(ContentHandler):
     def print_dtd(self):
         # Process the element types encountered, in turn
 
+        # TODO: Remove the sorted(...) after original port is working
         for element_name, ed in sorted(self.element_list.items()):
 
             children = ed.children
