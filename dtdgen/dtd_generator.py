@@ -109,22 +109,22 @@ class DTDGenerator(ContentHandler):
                 # candidate-ID attributes overlap, in which case
                 # they can't both be ID's !!
                 isid: bool = ad.all_names \
-                            and not done_id \
-                            and ad.unique \
-                            and ad.occurrences >= self.MIN_ID_VALUES
+                             and not done_id \
+                             and ad.unique \
+                             and ad.occurrences >= self.MIN_ID_VALUES
 
                 # If there is only one attribute value, and at least
                 # MIN_FIXED occurrences of it, treat it as FIXED
                 isfixed: bool = required \
-                            and len(ad.values) == 1 \
-                            and ad.occurrences >= self.MIN_FIXED
+                                and len(ad.values) == 1 \
+                                and ad.occurrences >= self.MIN_FIXED
 
                 # If the number of distinct values is small compared with
                 # the number of occurrences, treat it as an enumeration
                 isenum: bool = ad.all_nmtokens \
-                            and ad.occurrences >= self.MIN_ENUMERATION_INSTANCES \
-                            and len(ad.values) <= ad.occurrences/self.MIN_ENUMERATION_RATIO \
-                            and len(ad.values) <= self.MAX_ENUMERATION_VALUES
+                               and ad.occurrences >= self.MIN_ENUMERATION_INSTANCES \
+                               and len(ad.values) <= ad.occurrences / self.MIN_ENUMERATION_RATIO \
+                               and len(ad.values) <= self.MAX_ENUMERATION_VALUES
 
                 print(f"<!ATTLIST {element_name} {attname} ", end='')
                 tokentype = "NMTOKEN" if ad.all_nmtokens else "CDATA"
@@ -145,6 +145,23 @@ class DTDGenerator(ContentHandler):
                         print(" #REQUIRED >")
                     else:
                         print(" #IMPLIED >")
+
+    def startElement(self, name, attrs):
+        """Handle the start of an element. Record information about
+        the position of this element relative to its parent, and about the
+         attributes of the element."""
+        super().startElement(name, attrs)
+
+    def endElement(self, name):
+        """Handle the end of element. If sequenced, check that all
+        expected children are accounted for."""
+        super().endElement(name)
+
+    def characters(self, content):
+        """Handle character data. Make a note whether significant
+        character data is found in the element"""
+        super().characters(content)
+
 
 # ============================================================
 # Mainline
