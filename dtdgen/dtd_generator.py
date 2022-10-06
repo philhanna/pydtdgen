@@ -159,7 +159,7 @@ class DTDGenerator(ContentHandler):
 
         # Retain the associated element details object and
         # initialize sequence numbering of child element types
-        se: StackEntry = StackEntry(element_details=ed, sequence_number=-1)
+        se: StackEntry = StackEntry(element_details=ed, sequence_number=-1, latest_child=None)
 
         # Handle the attributes accumulated for this element.
         # Merge the new attribute list into the existing list
@@ -167,7 +167,7 @@ class DTDGenerator(ContentHandler):
         for attname, val in attrs.items():
             ad: AttributeDetails = ed.attributes.get(attname, None)
             if not ad:
-                ad = AttributeDetails(attname)
+                ad = AttributeDetails(name, 0, False, set(), False, False)
                 ed.attributes[attname] = ad
             if val not in ad.values:
 
@@ -276,18 +276,3 @@ class DTDGenerator(ContentHandler):
                 if ch > ' ':
                     ed.has_character_content = True
                     break
-
-
-# ============================================================
-# Mainline
-# ============================================================
-if __name__ == '__main__':
-    import argparse
-
-    parser = argparse.ArgumentParser(description='DTDGenerator')
-    parser.add_argument('-v', '--version', action='store_true', help='display version number')
-    parser.add_argument('filename', help='Input xml file')
-    args = parser.parse_args()
-
-    app = DTDGenerator(args.filename)
-    app.run(args.filename)
