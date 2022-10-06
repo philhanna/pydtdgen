@@ -82,11 +82,11 @@ class DTDGenerator(ContentHandler):
                     print(", ".join(outlist) + " ) >")
 
                 # The childen don't always appear in the same sequence,
-                # so list them alphabeticall and allow them to be
+                # so list them alphabetically and allow them to be
                 # in any order
-
-                sb = " | ".join(child_keys)
-                print(sb + " )* ) >")
+                else:
+                    sb = " | ".join(child_keys)
+                    print(sb + " )* ) >")
 
             # MIXED content
             if len(child_keys) > 0 and ed.has_character_content:
