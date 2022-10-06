@@ -51,23 +51,19 @@ class TestDTDGenerator(TestCase):
         return expected, actual
 
     def test_nmtoken(self):
+        app = DTDGenerator()
+        app.run(self.input_file)
+        with StringIO() as out, stdout_redirected(out):
+            app.print_dtd()
         regexp = re.compile(r"ATTLIST ConfirmationsSetting id (\S+)")
         expected, actual = self.extract_comparison_data(regexp)
         self.assertEqual(expected, actual)
 
-    def test_nmtoken_run(self):
+    def test_required(self):
         app = DTDGenerator()
         app.run(self.input_file)
         with StringIO() as out, stdout_redirected(out):
             app.print_dtd()
-
-    def test_required(self):
         regexp = re.compile(r"ATTLIST ConfirmationsSetting id \S+ (\S+)")
         expected, actual = self.extract_comparison_data(regexp)
         self.assertEqual(expected, actual)
-
-    def test_required_run(self):
-        app = DTDGenerator()
-        app.run(self.input_file)
-        with StringIO() as out, stdout_redirected(out):
-            app.print_dtd()
