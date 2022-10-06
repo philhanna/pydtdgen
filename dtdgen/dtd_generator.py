@@ -1,7 +1,7 @@
 from xml.sax import parse
 from xml.sax.handler import ContentHandler
 
-from dtdgen import ElementDetails, StackEntry
+from dtdgen import ElementDetails, StackEntry, escape
 
 
 class DTDGenerator(ContentHandler):
@@ -131,7 +131,20 @@ class DTDGenerator(ContentHandler):
 
                 if isid:
                     print("ID", end='')
-
+                    don_id = True
+                elif isfixed:
+                    val: str = list(ad.values)[0]
+                    print(f'{tokentype} #FIXID "{escape(val)}" >')
+                elif isenum:
+                    vals = " | ".join([str(val) for val in ad.values])
+                    print(f"( {vals} )", end='')
+                else:
+                    print(tokentype, end='')
+                if not isfixed:
+                    if required:
+                        print(" #REQUIRED >")
+                    else:
+                        print(" #IMPLIED >")
 
 # ============================================================
 # Mainline
