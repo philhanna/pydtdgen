@@ -160,7 +160,13 @@ class DTDGenerator(ContentHandler):
     def characters(self, content):
         """Handle character data. Make a note whether significant
         character data is found in the element"""
-        super().characters(content)
+        ed = self.element_stack[-1].element_details
+        if not ed.has_character_content:
+            for ch in content:
+                if ch > ' ':
+                    ed.has_character_content = True
+                    break
+
 
 
 # ============================================================
