@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class AttributeDetails:
+    """a data structure to keep information about attribute types"""
     name: str
     occurrences: int
     unique: bool
