@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7aeafcfa-6a9c-45a9-8475-8b476c33c85d" name="Changes" comment="Updated __init__.py with AttributeDetails">
+      <change beforePath="$PROJECT_DIR$/dtdgen/dtd_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dtdgen/dtd_generator.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="/tmp" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Unit Test" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Crs4GqgDOZvzElxjHeSjPWy8ox" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/saspeh/PycharmProjects/pydtdgen/tests/model_builder&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
+    ]
+  }
+}</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="pydtdgen" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="pydtdgen" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dtdgen" />
+      <recent name="$PROJECT_DIR$/original" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/tests/dtd" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/dtd" />
+      <recent name="$PROJECT_DIR$/java/dtdgen-master" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main with workspace.xml">
+    <configuration name="main with workspace.xml" type="PythonConfigurationType" factoryName="Python">
+      <module name="pydtdgen" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dtdgen.py" />
+      <option name="PARAMETERS" value=".idea/workspace.xml" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pydtdgen" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_is_valid_nmtoken.TestIsValidNMTOKEN&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN.test_all_alpha" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pydtdgen" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_is_valid_nmtoken.TestIsValidNMTOKEN.test_all_alpha&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN.test_dot_dash_hyphen_colon" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pydtdgen" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_is_valid_nmtoken.TestIsValidNMTOKEN.test_dot_dash_hyphen_colon&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pydtdgen" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main with workspace.xml" />
+      <item itemvalue="Python tests.Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN" />
+      <item itemvalue="Python tests.Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN.test_all_alpha" />
+      <item itemvalue="Python tests.Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN.test_dot_dash_hyphen_colon" />
+      <item itemvalue="Python tests.Python tests in tests" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN" />
+        <item itemvalue="Python tests.Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN.test_dot_dash_hyphen_colon" />
+        <item itemvalue="Python tests.Python tests for test_is_valid_nmtoken.TestIsValidNMTOKEN.test_all_alpha" />
+        <item itemvalue="Python tests.Python tests in tests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7aeafcfa-6a9c-45a9-8475-8b476c33c85d" name="Changes" comment="" />
+      <created>1659571844246</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659571844246</updated>
+      <workItem from="1659571845783" duration="6797000" />
+      <workItem from="1659578653692" duration="81000" />
+      <workItem from="1659579105481" duration="357000" />
+      <workItem from="1659579481780" duration="6440000" />
+      <workItem from="1659627184939" duration="30000" />
+      <workItem from="1659725473796" duration="22281000" />
+      <workItem from="1659801040351" duration="2081000" />
+      <workItem from="1659804573761" duration="427000" />
+      <workItem from="1659805010187" duration="7027000" />
+      <workItem from="1659826788006" duration="4066000" />
+      <workItem from="1659831866440" duration="403000" />
+      <workItem from="1659897027450" duration="4223000" />
+      <workItem from="1659924310411" duration="16000" />
+      <workItem from="1660246230478" duration="5327000" />
+      <workItem from="1660325527798" duration="8000" />
+      <workItem from="1660328067800" duration="125000" />
+      <workItem from="1660328199239" duration="166000" />
+      <workItem from="1660328465203" duration="854000" />
+      <workItem from="1660338576600" duration="43000" />
+      <workItem from="1660467599762" duration="7000" />
+      <workItem from="1662302325307" duration="7249000" />
+      <workItem from="1662315284884" duration="269000" />
+      <workItem from="1662315948987" duration="5000" />
+      <workItem from="1662495655230" duration="557000" />
+      <workItem from="1662517947331" duration="8156000" />
+      <workItem from="1662556795779" duration="7000" />
+      <workItem from="1662595600043" duration="20691000" />
+      <workItem from="1662617025612" duration="713000" />
+      <workItem from="1662648268046" duration="4705000" />
+      <workItem from="1662667197962" duration="3800000" />
+      <workItem from="1662689275802" duration="4000" />
+      <workItem from="1664658059729" duration="9000" />
+      <workItem from="1664664141222" duration="16000" />
+      <workItem from="1664845097832" duration="14734000" />
+      <workItem from="1664988600663" duration="10510000" />
+      <workItem from="1665015887341" duration="9772000" />
+    </task>
+    <task id="LOCAL-00001" summary="Converted about.html to about.md with pandoc">
+      <created>1659573761930</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659573761930</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added link to github in README.md">
+      <created>1659573884624</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659573884624</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added unit test for AttributeModel defaults">
+      <created>1659580768669</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659580768669</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added unit test for AttributeModel first_value.&#10;&#10;Changed underlying representation of values&#10;from a set to a dict so that the values will&#10;be returned in insertion order">
+      <created>1659581106629</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659581106629</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added unit test for AttributeModel first_value on an empty list">
+      <created>1659581536656</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659581536656</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added unit test for AttributeModel first_value on an empty list">
+      <created>1659581626304</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659581626304</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added unit test for AttributeModel increment_occurrences">
+      <created>1659581751729</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659581751729</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added unit test for AttributeModel.contains">
+      <created>1659582305644</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1659582305644</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added get values method to AttributeModel and unit test">
+      <created>1659582797176</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659582797176</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added unit test for AttributeModel.__str__">
+      <created>1659582944838</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659582944838</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Finished unit tests for basic properties of ChildModel">
+      <created>1659583956550</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659583956550</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Finished unit tests for ChildModel">
+      <created>1659585252996</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659585252996</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added methods and unit tests for ElementModel">
+      <created>1659732537554</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1659732537554</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added unit test for AttributeModel.value_iterator">
+      <created>1659741820582</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659741820582</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added ElementModel to __init__">
+      <created>1659743704213</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1659743704213</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed whitespace">
+      <created>1659743719284</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1659743719284</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added property getter for &quot;name&quot;">
+      <created>1659743749206</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1659743749206</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added run() to DocumentModelBuilder">
+      <created>1659748340769</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1659748340769</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added get_element_root() to DocumentModel">
+      <created>1659752712762</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1659752712762</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added beginnings of ContentHandler to DocumentModelBuilder">
+      <created>1659752772124</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1659752772124</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added child_iterator() to ElementModel">
+      <created>1659752800543</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1659752800543</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added methods to DocumentModel&#10;&#10;get_element_model(name)&#10;element_name_iterator()">
+      <created>1659754074067</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659754074067</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added DocumentModelBuilder to __init__">
+      <created>1659754395813</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1659754395813</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Started on RunMain class">
+      <created>1659805642016</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1659805642016</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added RunMain to __init__">
+      <created>1659805654731</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1659805654731</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Finished DTDElementGenerator">
+      <created>1659828257549</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1659828257549</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added DTDElementModel stub">
+      <created>1659828750073</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659828750073</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Finished DTDElementModel">
+      <created>1659829289638</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1659829289638</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Stub for DTDEmptyElement">
+      <created>1659829515021</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1659829515021</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Started work on dtd_attribute_list.py">
+      <created>1659899735479</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1659899735479</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added docstring">
+      <created>1665016362963</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1665016362963</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Updated __init__.py with AttributeDetails">
+      <created>1665016912015</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1665016912015</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added unit test for AttributeModel.contains" />
+    <MESSAGE value="Added get values method to AttributeModel and unit test" />
+    <MESSAGE value="Added unit test for AttributeModel.__str__" />
+    <MESSAGE value="Finished unit tests for basic properties of ChildModel" />
+    <MESSAGE value="Finished unit tests for ChildModel" />
+    <MESSAGE value="Added methods and unit tests for ElementModel" />
+    <MESSAGE value="Added unit test for AttributeModel.value_iterator" />
+    <MESSAGE value="Added ElementModel to __init__" />
+    <MESSAGE value="Fixed whitespace" />
+    <MESSAGE value="Added property getter for &quot;name&quot;" />
+    <MESSAGE value="Added run() to DocumentModelBuilder" />
+    <MESSAGE value="Added get_element_root() to DocumentModel" />
+    <MESSAGE value="Added beginnings of ContentHandler to DocumentModelBuilder" />
+    <MESSAGE value="Added child_iterator() to ElementModel" />
+    <MESSAGE value="Added methods to DocumentModel&#10;&#10;get_element_model(name)&#10;element_name_iterator()" />
+    <MESSAGE value="Added DocumentModelBuilder to __init__" />
+    <MESSAGE value="Started on RunMain class" />
+    <MESSAGE value="Added RunMain to __init__" />
+    <MESSAGE value="Finished DTDElementGenerator" />
+    <MESSAGE value="Added DTDElementModel stub" />
+    <MESSAGE value="Finished DTDElementModel" />
+    <MESSAGE value="Stub for DTDEmptyElement" />
+    <MESSAGE value="Started work on dtd_attribute_list.py" />
+    <MESSAGE value="Added docstring" />
+    <MESSAGE value="Updated __init__.py with AttributeDetails" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated __init__.py with AttributeDetails" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dtdgen/dtd_generator.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pydtdgen$mock_document_model_builder.coverage" NAME="mock_document_model_builder Coverage Results" MODIFIED="1662615580698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/model_builder" />
+    <SUITE FILE_PATH="coverage/pydtdgen$scratch_8.coverage" NAME="scratch_8 Coverage Results" MODIFIED="1664988811901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/pydtdgen$abstract_base_class.coverage" NAME="abstract_base_class Coverage Results" MODIFIED="1662315511682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/pydtdgen$main_with_workspace_xml.coverage" NAME="main with workspace.xml Coverage Results" MODIFIED="1665025774687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pydtdgen$dtd_generator.coverage" NAME="main with .idea Coverage Results" MODIFIED="1665021640066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dtdgen" />
+    <SUITE FILE_PATH="coverage/pydtdgen$.coverage" NAME=" Coverage Results" MODIFIED="1664991762439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/pydtdgen$abstract_bass_class.coverage" NAME="abstract_bass_class Coverage Results" MODIFIED="1660330137267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/pydtdgen$show_dir.coverage" NAME="show_dir Coverage Results" MODIFIED="1662521118901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
+</project>
