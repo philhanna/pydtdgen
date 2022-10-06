@@ -99,7 +99,7 @@ class DTDGenerator(ContentHandler):
             attlist = ed.attributes
             done_id = False  # To ensure we have at most one ID attribute per element
 
-            for attname, ad in attlist.items():
+            for attname, ad in sorted(attlist.items()):
                 # If the attribute is present on every instance of the element,
                 # treat it as required
                 required: bool = (ad.occurrences == ed.occurrences)
