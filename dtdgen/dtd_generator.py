@@ -52,7 +52,7 @@ class DTDGenerator(ContentHandler):
     def print_dtd(self):
         # Process the element types encountered, in turn
 
-        for element_name, ed in self.element_list.items():
+        for element_name, ed in sorted(self.element_list.items()):
 
             children = ed.children
             child_keys = sorted(set([k for k in children]))
