@@ -51,7 +51,9 @@ class DTDGenerator(ContentHandler):
 
     def print_dtd(self):
         # Process the element types encountered, in turn
+
         for element_name, ed in self.element_list.items():
+
             children = ed.children
             child_keys = sorted(set([k for k in children]))
 
@@ -145,6 +147,7 @@ class DTDGenerator(ContentHandler):
                         print(" #REQUIRED >")
                     else:
                         print(" #IMPLIED >")
+            print()
 
     def startElement(self, name, attrs):
         """Handle the start of an element. Record information about
