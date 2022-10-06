@@ -155,7 +155,17 @@ class DTDGenerator(ContentHandler):
     def endElement(self, name):
         """Handle the end of element. If sequenced, check that all
         expected children are accounted for."""
-        super().endElement(name)
+
+        # If the number of child element groups in this parent element
+        # is less than the number if previous elements, then the
+        # absent children are marked as optional
+        ed = self.element_list[name]
+        if ed.sequenced:
+            se = self.element_stack[-1]
+            seq: int = se.sequence_number
+            for i in range(seq + 1, len(ed.childseq)):
+                ed.childseq[i].optional = True
+        self.element_stack.pop()
 
     def characters(self, content):
         """Handle character data. Make a note whether significant
