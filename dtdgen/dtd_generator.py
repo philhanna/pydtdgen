@@ -40,9 +40,9 @@ class DTDGenerator(ContentHandler):
     # Stack of elements currently open; each entry is a StackEntry object
     element_stack: list[StackEntry] = None
 
-    def __init__(self, filename):
+    def __init__(self):
         super().__init__()
-        self.filename = filename
+        self.filename = None
         self.element_list = {}
         self.element_stack = []
 

@@ -8,6 +8,6 @@ parser.add_argument('-v', '--version', action='store_true', help='display versio
 parser.add_argument('filename', help='Input xml file')
 args = parser.parse_args()
 
-app = DTDGenerator(args.filename)
+app = DTDGenerator()
 app.run(args.filename)
 app.print_dtd()
