@@ -1,6 +1,8 @@
 # pydtdgen
-DTD Generator (inspired by Michael Kay's dtdgen 7.0)
-See [dtdgen](http://saxon.sourceforge.net/dtdgen.html)
+DTD Generator based on Michael Kay's dtdgen 7.0 (See [dtdgen](http://saxon.sourceforge.net/dtdgen.html))
+
+This version is a direct low-level port from Java to Python.
+I hope to make enhancements in later versions.
 
 ## source code repository
 [https://github.com/philhanna/pydtdgen](https://github.com/philhanna/pydtdgen)
