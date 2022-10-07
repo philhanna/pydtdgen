@@ -134,7 +134,7 @@ class DTDGenerator(ContentHandler):
 
                 if isid:
                     print("ID", end='')
-                    don_id = True
+                    done_id = True
                 elif isfixed:
                     val: str = list(ad.values)[0]
                     print(f'{tokentype} #FIXED "{escape(val)}" >')
@@ -223,7 +223,7 @@ class DTDGenerator(ContentHandler):
             children = parent_details.children
             c: ChildDetails = children.get(name, None)
             if c is None:
-                # This is the first time we'eve seen this child belonging to
+                # This is the first time we've seen this child belonging to
                 # this parent
                 c = ChildDetails()
                 c.name = name
@@ -250,7 +250,7 @@ class DTDGenerator(ContentHandler):
                 # in this parent element is the same as its position
                 # in previous instances of the parent.
                 if len(parent_details.childseq) <= seq or \
-                        parent_details.childseq[seq].name == name:
+                        parent_details.childseq[seq].name != name:
                     parent_details.sequenced = False
 
             # If there's more than one child element, mark it as repeatable

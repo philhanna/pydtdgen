@@ -76,3 +76,12 @@ class TestDTDGenerator(TestCase):
         regexp = re.compile(r"<!ELEMENT breakpoint-manager (.*)")
         expected, actual = self.extract_comparison_data(regexp)
         self.assertEqual(expected, actual)
+
+    def test_key(self):
+        app = DTDGenerator()
+        app.run(self.input_file)
+        with StringIO() as out, stdout_redirected(out):
+            app.print_dtd()
+        regexp = re.compile(r"<!ELEMENT key (.*)")
+        expected, actual = self.extract_comparison_data(regexp)
+        self.assertEqual(expected, actual)

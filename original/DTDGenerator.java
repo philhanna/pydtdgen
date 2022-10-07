@@ -159,6 +159,9 @@ public class DTDGenerator extends org.xml.sax.helpers.DefaultHandler {
             if (childKeys.size()>0 && !ed.hasCharacterContent) {
                 System.out.print("<!ELEMENT " + elementname + " ( ");
 
+                if (elementname.equals("key")) {
+                    System.err.println("DEBUG: 163: ed.sequenced=" + ed.sequenced);
+                }
                 if (ed.sequenced) {
                     
                     // all elements of this type have the same child elements
@@ -339,6 +342,7 @@ public class DTDGenerator extends org.xml.sax.helpers.DefaultHandler {
 	throws SAXException
     {
         StackEntry se = new StackEntry();
+        boolean DEBUG = name.equals("key");
 
         // create an entry in the Element List, or locate the existing entry        
         ElementDetails ed = (ElementDetails) elementList.get(name);
@@ -406,6 +410,9 @@ public class DTDGenerator extends org.xml.sax.helpers.DefaultHandler {
             StackEntry parent = (StackEntry)elementStack.peek();
             ElementDetails parentDetails = parent.elementDetails;
             int seq = parent.sequenceNumber;
+            if (DEBUG) {
+                System.err.println("DEBUG: 414: stackEntry=" + parent);
+            }
 
             // for sequencing, we're interested in consecutive groups of the same child element type
             boolean isFirstInGroup = (parent.latestChild==null || (!parent.latestChild.equals(name)));
@@ -522,6 +529,15 @@ public class DTDGenerator extends org.xml.sax.helpers.DefaultHandler {
             this.childseq = new Vector();
             this.attributes = new TreeMap();
         }
+
+        public String toString() {
+            String sb = "ElementDetails(";
+            sb += "name=" + this.name;
+            sb += ",occurrences=" + this.occurrences;
+            sb += ",sequenced=" + this.sequenced;
+            sb += ")";
+            return sb;
+        }
     }
 
     /**
@@ -568,6 +584,14 @@ public class DTDGenerator extends org.xml.sax.helpers.DefaultHandler {
         ElementDetails elementDetails;
         int sequenceNumber;
         String latestChild;
+
+        public String toString() {
+            String sb = "StackEntry(";
+            sb += "elementDetails=" + this.elementDetails;
+            sb += ",sequenceNumber=" + this.sequenceNumber;
+            sb += ",latestChild=" + this.latestChild;
+            return sb;
+        }
     }
 
 
