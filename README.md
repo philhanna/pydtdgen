@@ -1,4 +1,3 @@
-***Not yet completed - still under development***
 # pydtdgen
 DTD Generator (inspired by Michael Kay's dtdgen 7.0)
 See [dtdgen](http://saxon.sourceforge.net/dtdgen.html)
