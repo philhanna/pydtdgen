@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<project name="dtdgen" default="compile" basedir=".">
+
+   <!-- Properties -->
+   <property name="src" value="src"/>
+   <property name="bin" value="bin"/>
+   <property name="lib" value="lib"/>
+   <property name="build" value="build"/>
+   <property name="dist" value="dist"/>
+   <property name="docs" value="docs"/>
+   <property name="jarfile" value="${ant.project.name}.jar"/>
+
+   <!-- Classpath -->
+   <path id="classpath">
+      <pathelement location="${build}/classes"/>
+   </path>
+
+   <!-- Target: init -->
+   <target name="init" description="Entry point">
+      <tstamp/>
+   </target>
+
+   <!-- Target: prepare -->
+   <target name="prepare" depends="init"
+           description="Creates build directories">
+      <mkdir dir="${build}"/>
+      <mkdir dir="${build}/classes"/>
+      <mkdir dir="${dist}"/>
+      <mkdir dir="${dist}/lib"/>
+   </target>
+
+   <!-- Target: compile -->
+   <target name="compile"
+           depends="prepare"
+           description="Compiles Java source code">
+
+      <!-- Compiles the .java files -->
+      <javac srcdir="${src}"
+             destdir="${build}/classes"
+             classpathref="classpath"
+             debug="true"
+             deprecation="true"
+             />
+
+      <!-- Copies resources and package.html to build directory -->
+      <copy todir="${build}/classes">
+         <fileset dir="${src}" excludes="**/*.java"/>
+      </copy>
+
+      <!-- Creates primary jar file -->
+      <jar jarfile="${dist}/lib/${jarfile}"
+           basedir="${build}/classes">
+         <manifest>
+            <attribute name="Main-Class" value="DTDGenerator"/>
+         </manifest>
+      </jar>
+
+      <!-- Copies binary files to bin -->
+      <!--
+      <copy todir="${dist}/bin">
+         <fileset dir="${bin}"/>
+      </copy>
+      -->
+
+      <!-- Copies jar files to lib -->
+      <!--
+      <copy todir="${dist}/lib">
+         <fileset dir="${lib}"/>
+      </copy>
+      -->
+
+   </target>
+
+   <!-- Target: javadoc -->
+   <target name="javadoc"
+           depends="prepare"
+           description="Creates API documentation">
+
+      <javadoc sourcepath="${src}"
+               destdir="${docs}/api"
+               packagenames="com.*"
+               classpathref="classpath"
+               source="1.4"
+               use="true"
+               />
+   </target>
+
+   <!-- Target: dist -->
+   <target name="dist"
+           depends="compile"
+           description="Alias for compile"/>
+
+   <!-- Target: clean -->
+   <target name="clean"
+           depends="init"
+           description="Deletes build directories in preparation for a full build">
+
+      <delete dir="${build}"/>
+      <delete dir="${dist}"/>
+
+   </target>
+
+   <!-- Target: full -->
+   <target name="full"
+           depends="clean,dist"
+           description="clean,dist"
+           />
+
+</project>
