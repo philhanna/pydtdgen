@@ -1,3 +1,4 @@
+import filecmp
 import os.path
 import re
 import subprocess
@@ -85,3 +86,10 @@ class TestDTDGenerator(TestCase):
         regexp = re.compile(r"<!ELEMENT key (.*)")
         expected, actual = self.extract_comparison_data(regexp)
         self.assertEqual(expected, actual)
+
+    def test_files_equal(self):
+        app = DTDGenerator()
+        app.run(self.input_file)
+        with StringIO() as out, stdout_redirected(out):
+            app.print_dtd()
+        self.assertTrue(filecmp.cmp(self.python_output, self.java_output))
