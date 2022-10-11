@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from dtdgen import is_valid_nmtoken
+from dtdgen.functions import is_valid_nmtoken
 
 
 class TestIsValidNMTOKEN(TestCase):

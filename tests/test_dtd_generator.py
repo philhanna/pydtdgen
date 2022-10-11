@@ -3,7 +3,7 @@ from io import StringIO
 from unittest import TestCase
 import os.path
 
-from dtdgen import DTDGenerator
+from dtdgen import SchemaModelBuilder, DTDGenerator
 
 from tests import testdata, tmp, stdout_redirected, stderr_redirected
 
@@ -19,9 +19,10 @@ class TestDTDGenerator(TestCase):
         with StringIO() as out:
             with stdout_redirected(out):
                 xml_input_filename = os.path.join(testdata, "workspace.xml")
-                app = DTDGenerator()
-                app.run(xml_input_filename)
-                app.print_dtd()
+                model = SchemaModelBuilder()
+                model.run(xml_input_filename)
+                generator = DTDGenerator(model)
+                generator.run()
                 output = out.getvalue()
         with open(new_dtd_filename, "w") as fp:
             fp.write(output)
@@ -31,8 +32,8 @@ class TestDTDGenerator(TestCase):
     def test_invalid_data(self):
         """Sees how invalid XML is handled"""
         filename = os.path.join(testdata, "invalid.xml")
-        app = DTDGenerator()
+        model = SchemaModelBuilder()
         with self.assertRaises(ValueError) as ve:
-            app.run(filename)
+            model.run(filename)
         errmsg = str(ve.exception)
         self.assertIn("mismatched tag", errmsg)

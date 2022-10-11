@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from dtdgen import ElementDetails, DTDGenerator, AttributeDetails
+from dtdgen import ElementDetails, SchemaModelBuilder, AttributeDetails
 
 
 class TestHandleAttributes(TestCase):
@@ -9,7 +9,7 @@ class TestHandleAttributes(TestCase):
         # First occurrence of <stooge name="..." rank="...">
         attrs = {"name": "Larry", "rank": "2"}
         ed = ElementDetails("stooge")
-        DTDGenerator.handle_attributes(attrs, ed)
+        SchemaModelBuilder.handle_attributes(attrs, ed)
         attributes = ed.attributes
         self.assertIn("rank", attributes)
         attr = attributes["rank"]
@@ -29,7 +29,7 @@ class TestHandleAttributes(TestCase):
             {"name": "Moe", "rank": "1"},
         ]
         for attrs in test_values:
-            DTDGenerator.handle_attributes(attrs, ed)
+            SchemaModelBuilder.handle_attributes(attrs, ed)
 
         # Check what we know about the rank attribute
         attr: AttributeDetails = ed.attributes["rank"]

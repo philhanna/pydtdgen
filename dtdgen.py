@@ -2,7 +2,7 @@
 import argparse
 import sys
 
-from dtdgen import DTDGenerator, get_version
+from dtdgen import SchemaModelBuilder, get_version, DTDGenerator
 
 parser = argparse.ArgumentParser(description="""
 Creates a document type description (DTD) from a sample XML file.
@@ -12,9 +12,10 @@ parser.add_argument('-v', '--version', action='version', version=f'{get_version(
 parser.add_argument('filename', help='Input xml file')
 args = parser.parse_args()
 
-app = DTDGenerator()
+model_builder = SchemaModelBuilder()
 try:
-    app.run(args.filename)
-    app.print_dtd()
+    model_builder.run(args.filename)
+    dtd_generator = DTDGenerator(model_builder)
+    dtd_generator.run()
 except Exception as ex:
     print(str(ex), file=sys.stderr)
