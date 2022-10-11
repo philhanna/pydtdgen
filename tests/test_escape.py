@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from dtdgen import escape
+from dtdgen.functions import escape
 
 
 def fmt2(n: int):
@@ -16,13 +16,13 @@ class TestEscape(TestCase):
         self.assertEqual(expected, actual)
 
     def test0020(self):
-        for i in range(0x00,0x20):
+        for i in range(0x00, 0x20):
             expected = "&#" + fmt2(i) + ";"
             actual = escape(chr(i))
             self.assertEqual(expected, actual)
 
     def test80100(self):
-        for i in range(0x80,0x100):
+        for i in range(0x80, 0x100):
             expected = "&#" + fmt2(i) + ";"
             actual = escape(chr(i))
             self.assertEqual(expected, actual)

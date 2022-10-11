@@ -1,0 +1,133 @@
+<!ELEMENT project ( component+ ) >
+<!ATTLIST project version NMTOKEN #REQUIRED >
+
+<!ELEMENT component ( #PCDATA | ConfirmationsSetting | MESSAGE | SUITE | bower-package | bower.json | breakpoint-manager | configuration | key | list | option | recent_temporary | servers | task )* >
+<!ATTLIST component CustomDictionaries NMTOKEN #IMPLIED >
+<!ATTLIST component DefaultDictionary NMTOKEN #IMPLIED >
+<!ATTLIST component Folders NMTOKEN #IMPLIED >
+<!ATTLIST component RuntimeDictionaries NMTOKEN #IMPLIED >
+<!ATTLIST component UseSingleDictionary NMTOKEN #IMPLIED >
+<!ATTLIST component id NMTOKEN #IMPLIED >
+<!ATTLIST component name ID #REQUIRED >
+<!ATTLIST component selected CDATA #IMPLIED >
+<!ATTLIST component transferred NMTOKEN #IMPLIED >
+
+<!ELEMENT option ( list?, console-settings?, map? ) >
+<!ATTLIST option name NMTOKEN #IMPLIED >
+<!ATTLIST option value CDATA #IMPLIED >
+
+<!ELEMENT list ( change | item | option )* >
+<!ATTLIST list comment CDATA #IMPLIED >
+<!ATTLIST list default NMTOKEN #IMPLIED >
+<!ATTLIST list id NMTOKEN #IMPLIED >
+<!ATTLIST list name NMTOKEN #IMPLIED >
+
+<!ELEMENT change EMPTY >
+<!ATTLIST change afterDir NMTOKEN #REQUIRED >
+<!ATTLIST change afterPath CDATA #REQUIRED >
+<!ATTLIST change beforeDir NMTOKEN #REQUIRED >
+<!ATTLIST change beforePath CDATA #REQUIRED >
+
+<!ELEMENT bower-package EMPTY >
+<!ATTLIST bower-package value CDATA #REQUIRED >
+
+<!ELEMENT bower.json EMPTY >
+<!ATTLIST bower.json value CDATA #REQUIRED >
+
+<!ELEMENT ConfirmationsSetting EMPTY >
+<!ATTLIST ConfirmationsSetting id NMTOKEN #REQUIRED >
+<!ATTLIST ConfirmationsSetting value NMTOKEN #REQUIRED >
+
+<!ELEMENT console-settings ( option+ ) >
+<!ATTLIST console-settings is-module-sdk NMTOKEN #REQUIRED >
+<!ATTLIST console-settings module-name NMTOKEN #REQUIRED >
+
+<!ELEMENT key ( recent+ ) >
+<!ATTLIST key name NMTOKEN #REQUIRED >
+
+<!ELEMENT recent EMPTY >
+<!ATTLIST recent name CDATA #REQUIRED >
+
+<!ELEMENT configuration ( #PCDATA | EXTENSION | envs | method | module | option )* >
+<!ATTLIST configuration factoryName NMTOKEN #IMPLIED >
+<!ATTLIST configuration name CDATA #IMPLIED >
+<!ATTLIST configuration nameIsGenerated NMTOKEN #IMPLIED >
+<!ATTLIST configuration temporary NMTOKEN #IMPLIED >
+<!ATTLIST configuration type NMTOKEN #IMPLIED >
+
+<!ELEMENT module EMPTY >
+<!ATTLIST module name NMTOKEN #FIXED "pydtdgen" >
+
+<!ELEMENT envs ( env ) >
+
+<!ELEMENT env EMPTY >
+<!ATTLIST env name NMTOKEN #REQUIRED >
+<!ATTLIST env value NMTOKEN #REQUIRED >
+
+<!ELEMENT EXTENSION EMPTY >
+<!ATTLIST EXTENSION ID NMTOKEN #FIXED "PythonCoverageRunConfigurationExtension" >
+<!ATTLIST EXTENSION runner NMTOKEN #FIXED "coverage.py" >
+
+<!ELEMENT method EMPTY >
+<!ATTLIST method v NMTOKEN #FIXED "2" >
+
+<!ELEMENT item EMPTY >
+<!ATTLIST item itemvalue CDATA #REQUIRED >
+
+<!ELEMENT recent_temporary ( list ) >
+
+<!ELEMENT task ( changelist | created | option | updated | workItem )* >
+<!ATTLIST task active NMTOKEN #IMPLIED >
+<!ATTLIST task id ID #REQUIRED >
+<!ATTLIST task summary CDATA #REQUIRED >
+
+<!ELEMENT changelist EMPTY >
+<!ATTLIST changelist comment CDATA #REQUIRED >
+<!ATTLIST changelist id NMTOKEN #REQUIRED >
+<!ATTLIST changelist name NMTOKEN #REQUIRED >
+
+<!ELEMENT created ( #PCDATA ) >
+
+<!ELEMENT updated ( #PCDATA ) >
+
+<!ELEMENT workItem EMPTY >
+<!ATTLIST workItem duration NMTOKEN #REQUIRED >
+<!ATTLIST workItem from NMTOKEN #REQUIRED >
+
+<!ELEMENT servers EMPTY >
+
+<!ELEMENT map ( entry ) >
+
+<!ELEMENT entry ( value ) >
+<!ATTLIST entry key NMTOKEN #REQUIRED >
+
+<!ELEMENT value ( State ) >
+
+<!ELEMENT State EMPTY >
+
+<!ELEMENT MESSAGE EMPTY >
+<!ATTLIST MESSAGE value CDATA #REQUIRED >
+
+<!ELEMENT breakpoint-manager ( breakpoints ) >
+
+<!ELEMENT breakpoints ( line-breakpoint ) >
+
+<!ELEMENT line-breakpoint ( url, line, option ) >
+<!ATTLIST line-breakpoint enabled NMTOKEN #REQUIRED >
+<!ATTLIST line-breakpoint suspend NMTOKEN #REQUIRED >
+<!ATTLIST line-breakpoint type NMTOKEN #REQUIRED >
+
+<!ELEMENT url ( #PCDATA ) >
+
+<!ELEMENT line ( #PCDATA ) >
+
+<!ELEMENT SUITE EMPTY >
+<!ATTLIST SUITE COVERAGE_BY_TEST_ENABLED NMTOKEN #FIXED "true" >
+<!ATTLIST SUITE COVERAGE_TRACING_ENABLED NMTOKEN #FIXED "false" >
+<!ATTLIST SUITE FILE_PATH CDATA #REQUIRED >
+<!ATTLIST SUITE MODIFIED NMTOKEN #REQUIRED >
+<!ATTLIST SUITE NAME CDATA #REQUIRED >
+<!ATTLIST SUITE RUNNER NMTOKEN #FIXED "coverage.py" >
+<!ATTLIST SUITE SOURCE_PROVIDER NMTOKEN #FIXED "com.intellij.coverage.DefaultCoverageFileProvider" >
+<!ATTLIST SUITE WORKING_DIRECTORY CDATA #REQUIRED >
+

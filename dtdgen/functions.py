@@ -1,13 +1,10 @@
-# ============================================================
-# Internal functions
-# ============================================================
+"""Internal functions"""
 import string
 
 
 def escape(s: str) -> str:
-    """
-    Escape special characters in a String value.
-    Returns he XML representation of the string.
+    """Escapes special characters in a String value.
+    Returns the XML representation of the string.
 
     This static method converts a Unicode string to a string containing
     only ASCII characters, in which non-ASCII characters are represented
@@ -19,7 +16,11 @@ def escape(s: str) -> str:
     only in XML.
     """
     outstr = ""
-    fmt2 = lambda i: ("0" + str(i))[-2:]
+
+    def fmt2(i: int) -> str:
+        """Returns the last two characters of a zero-padded integer string"""
+        return ("0" + str(i))[-2:]
+
     for c in s:
         match c:
             case '<':
@@ -70,3 +71,10 @@ def is_valid_name(s: str) -> bool:
         c == '.',
         c == '-',
     ])
+
+
+__all__ = [
+    'escape',
+    'is_valid_nmtoken',
+    'is_valid_name',
+]
