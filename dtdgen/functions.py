@@ -1,4 +1,5 @@
 """Internal functions"""
+import re
 import string
 
 
@@ -74,8 +75,15 @@ def is_valid_name(s: str) -> bool:
     ])
 
 
-__all__ = [
-    'escape',
-    'is_valid_nmtoken',
-    'is_valid_name',
-]
+def get_version():
+    import subprocess
+    version = None
+    cp = subprocess.run(['pip', 'show', 'pydtdgen'], stdout=subprocess.PIPE)
+    if cp.returncode == 0:
+        output = str(cp.stdout, encoding='utf-8')
+        for token in output.split('\n'):
+            m = re.match(r'^Version: (.*)', token)
+            if m:
+                version = m.group(1)
+                break
+    return version

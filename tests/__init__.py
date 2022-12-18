@@ -1,12 +1,12 @@
-import os.path
+from pathlib import Path
 import sys
 import tempfile
 from contextlib import contextmanager
 
-my_dir = os.path.dirname(__file__)
-project_root_dir = os.path.abspath(os.path.join(my_dir, ".."))
-testdata = os.path.join(project_root_dir, "testdata")
-
+this_file = Path(__file__)
+tests_dir = this_file.parent
+project_root = tests_dir.parent
+testdata = project_root.joinpath("testdata")
 tmp = tempfile.gettempdir()
 
 
@@ -44,7 +44,7 @@ def stdin_redirected(new_stdin):
 
 __all__ = [
     'tmp',
-    'project_root_dir',
+    'project_root',
     'testdata',
     'stdout_redirected',
     'stderr_redirected',
