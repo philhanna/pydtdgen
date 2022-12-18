@@ -1,36 +1,27 @@
-from unittest import TestCase
+import pytest
 
 from dtdgen.functions import is_valid_nmtoken
 
 
-class TestIsValidNMTOKEN(TestCase):
+@pytest.mark.parametrize("test_input", [
+    "NowIsTheTime",
+    "Now2Is34The567Time",
+    "Now.Is_The-Time:",
+    "1",
+    ".Now",
+    "_Now",
+    "-Now",
+    ":Now",
+])
+def test_good(test_input):
+    """These should all be valid"""
+    assert is_valid_nmtoken(test_input)
 
-    def test_all_alpha(self):
-        self.assertTrue(is_valid_nmtoken("NowIsTheTime"))
 
-    def test_all_alpha_or_digits(self):
-        self.assertTrue(is_valid_nmtoken("Now2Is34The567Time"))
-
-    def test_dot_dash_hyphen_colon(self):
-        self.assertTrue(is_valid_nmtoken("Now.Is_The-Time:"))
-
-    def test_starts_with_digit(self):
-        self.assertTrue(is_valid_nmtoken("1"))
-
-    def test_starts_with_dot(self):
-        self.assertTrue(is_valid_nmtoken(".Now"))
-
-    def test_starts_with_dash(self):
-        self.assertTrue(is_valid_nmtoken("_Now"))
-
-    def test_starts_with_hyphen(self):
-        self.assertTrue(is_valid_nmtoken("-Now"))
-
-    def test_starts_with_colon(self):
-        self.assertTrue(is_valid_nmtoken(":Now"))
-
-    def test_bad_has_spaces(self):
-        self.assertFalse(is_valid_nmtoken("Now is the time"))
-
-    def test_bad_has_semicolon(self):
-        self.assertFalse(is_valid_nmtoken("Now;"))
+@pytest.mark.parametrize("test_input", [
+    "Now is the time",
+    "Now;",
+])
+def test_good(test_input):
+    """These are all invalid"""
+    assert not is_valid_nmtoken(test_input)
