@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog].
 ## Unreleased
 
 - Added this changelog
+- Issue #21: Converted unit tests to pytest
 
 ## [1.0.0] - 2022-08-25
 

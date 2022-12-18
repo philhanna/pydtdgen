@@ -1,8 +1,4 @@
-from dtdgen.functions import escape
-
-
-def fmt2(n: int):
-    return ("0" + str(n))[-2:]
+from dtdgen import escape, fmt2
 
 
 def test_single_quotes():

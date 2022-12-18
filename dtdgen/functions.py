@@ -2,6 +2,11 @@
 import string
 
 
+def fmt2(i: int) -> str:
+    """Returns the last two characters of a zero-padded integer string"""
+    return ("0" + str(i))[-2:]
+
+
 def escape(s: str) -> str:
     """Escapes special characters in a String value.
     Returns the XML representation of the string.
@@ -16,10 +21,6 @@ def escape(s: str) -> str:
     only in XML.
     """
     outstr = ""
-
-    def fmt2(i: int) -> str:
-        """Returns the last two characters of a zero-padded integer string"""
-        return ("0" + str(i))[-2:]
 
     for c in s:
         match c:

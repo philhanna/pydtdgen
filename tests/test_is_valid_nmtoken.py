@@ -1,6 +1,6 @@
 import pytest
 
-from dtdgen.functions import is_valid_nmtoken
+from dtdgen import is_valid_nmtoken
 
 
 @pytest.mark.parametrize("test_input", [
