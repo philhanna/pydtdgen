@@ -1,39 +1,40 @@
 import filecmp
-from io import StringIO
-from unittest import TestCase
-import os.path
-
+from pathlib import Path
+import pytest
 from dtdgen import SchemaModelBuilder, DTDGenerator
 
-from tests import testdata, tmp, stdout_redirected, stderr_redirected
+from tests import testdata
 
 
-class TestDTDGenerator(TestCase):
+def test_run(tmp_path, capsys):
+    """Compares output from latest code to saved version of the DTD"""
 
-    def test_run(self):
-        """Compares output from latest code to saved version of the DTD"""
-        old_dtd_filename = os.path.join(testdata, "workspace.dtd")
+    # Create file names
+    old_dtd_filename = Path(testdata) / "workspace.dtd"
+    new_dtd_filename = tmp_path / "workspace.dtd"
+    xml_input_filename = Path(testdata) / "workspace.xml"
 
-        # Generate a DTD with the latest code
-        new_dtd_filename = os.path.join(tmp, "workspace.dtd")
-        with StringIO() as out:
-            with stdout_redirected(out):
-                xml_input_filename = os.path.join(testdata, "workspace.xml")
-                model = SchemaModelBuilder()
-                model.run(xml_input_filename)
-                generator = DTDGenerator(model)
-                generator.run()
-                output = out.getvalue()
-        with open(new_dtd_filename, "w") as fp:
-            fp.write(output)
+    # Generate a DTD model with the latest code
+    model = SchemaModelBuilder()
+    model.run(xml_input_filename)
 
-        self.assertTrue(filecmp.cmp(old_dtd_filename, new_dtd_filename))
+    # Create the DTD and write it to stdout
+    generator = DTDGenerator(model)
+    generator.run()
 
-    def test_invalid_data(self):
-        """Sees how invalid XML is handled"""
-        filename = os.path.join(testdata, "invalid.xml")
-        model = SchemaModelBuilder()
-        with self.assertRaises(ValueError) as ve:
-            model.run(filename)
-        errmsg = str(ve.exception)
-        self.assertIn("mismatched tag", errmsg)
+    # Write the output to a file for comparison
+    output = capsys.readouterr().out
+    new_dtd_filename.write_text(output)
+
+    assert filecmp.cmp(old_dtd_filename, new_dtd_filename)
+
+
+def test_invalid_data():
+    """Sees how invalid XML is handled"""
+    filename = Path(testdata) / "invalid.xml"
+    model = SchemaModelBuilder()
+    with pytest.raises(ValueError) as ve:
+        model.run(filename)
+    errmsg = str(ve.value)
+
+    assert "mismatched tag" in errmsg
