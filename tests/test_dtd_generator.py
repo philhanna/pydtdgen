@@ -1,8 +1,9 @@
 import filecmp
 from pathlib import Path
-import pytest
-from dtdgen import SchemaModelBuilder, DTDGenerator
 
+import pytest
+
+from dtdgen import SchemaModelBuilder, DTDGenerator
 from tests import testdata
 
 

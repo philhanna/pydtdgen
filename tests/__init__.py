@@ -1,7 +1,7 @@
-from pathlib import Path
 import sys
 import tempfile
 from contextlib import contextmanager
+from pathlib import Path
 
 this_file = Path(__file__)
 tests_dir = this_file.parent
