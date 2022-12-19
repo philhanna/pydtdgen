@@ -21,3 +21,9 @@ def test80100():
         actual = escape(chr(i))
         assert actual == expected
 
+
+def test_angles():
+    s = "<abc&>\""
+    expected = "&lt;abc&amp;&gt;&#34;"
+    actual = escape(s)
+    assert actual == expected

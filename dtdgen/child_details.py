@@ -5,7 +5,6 @@ class ChildDetails:
 
     def __init__(self):
         self._name: str | None = None
-        self._position: int = 0
         self._repeatable: bool = False
         self._optional: bool = False
 
@@ -16,14 +15,6 @@ class ChildDetails:
     @name.setter
     def name(self, value: str):
         self._name = value
-
-    @property
-    def position(self) -> int:
-        return self._position
-
-    @position.setter
-    def position(self, value: int):
-        self._position = value
 
     @property
     def repeatable(self) -> bool:
