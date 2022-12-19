@@ -44,22 +44,10 @@ class ElementDetails:
     def children(self) -> dict:
         return self._children
 
-    @children.setter
-    def children(self, value: dict):
-        self._children = value
-
     @property
     def childseq(self) -> list[ChildDetails]:
         return self._childseq
 
-    @childseq.setter
-    def childseq(self, value: list):
-        self._childseq = value
-
     @property
     def attributes(self) -> dict:
         return self._attributes
-
-    @attributes.setter
-    def attributes(self, value: dict):
-        self._attributes = value
