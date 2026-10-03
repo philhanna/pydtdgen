@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydtdgen"
+version = "1.0.0"
+description = "Python port of dtdgen"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT License" }
+authors = [
+    { name = "saspeh", email = "ph1204@gmail.com" },
+]
+dependencies = [
+    "pytest>=8",
+]
+
+[project.scripts]
+dtdgen = "dtdgen.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/philhanna/pydtdgen"
+
+[tool.setuptools]
+packages = ["dtdgen"]
